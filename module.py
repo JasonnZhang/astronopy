@@ -100,11 +100,11 @@ def escapeVelocity(v='solve', M='solve', r='solve', work ='mhm'):
     elif M=='solve' and v!='solve' and r!='solve':
         # Lazy again to solve for mass
         if work == 'mhm':
-            #print work
+            print("work goes here")
     elif r=='solve' and v!='solve' and M!='solve':
         # 2 algebra 2 function
         if work == 'mhm':
-            #print work
+            print("work goes here")
     else:
         print('Syntax:  escapeVeloity(velocity, mass, radius, work)')   
 
