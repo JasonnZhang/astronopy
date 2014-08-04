@@ -82,7 +82,23 @@ def tempOfPlanet(T='default', L='default', a='default', d='default', work='ofc')
     else
         print('Syntax:  tempOfPlant(temperature, luminosity of star, albedo, distance from star, work)') # Maybe information about the formula can go here.
 
-
-        
+# Escape velocity
+def escapeVelocity(v='default', M='default', r='default', work ='mhm')
+    if v=='default' and M!='default' and r!='default
+        v = sqrt((2*const.bigG)/r)
+        print('Escape velocity v in m/s = ', v)
+        if work == 'mhm'
+            print('''v = sqrt(2GM/r)
+                    v = ''', v)
+    if M=='default' and v!='default' and r!='default
+        # Lazy again to solve for mass
+        if work == 'mhm'
+            #print work
+    if r=='default' and v!='default' and M!='default
+        # 2 algebra 2 function
+        if work == 'mhm'
+            #print work
+    else
+        print('Syntax:  escapeVeloity(velocity, mass, radius, work)')   
 
 
