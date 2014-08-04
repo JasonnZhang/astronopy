@@ -77,15 +77,15 @@ def tempOfPlanet(T='solve', L='solve', a='solve', d='solve', work='ofc'):
     elif L=='solve' and T!='solve' and a!='solve' and d!='solve':
         #I don't feel like doing the algebra here...
         if work == 'ofc':
-            #print work
+            print("work goes here")
     elif a=='solve' and L!='solve' and T!='solve' and d!='solve':
         #Much algebra very tired
         if work == 'ofc':
-            #print work
+            print("work goes here")
     elif d=='solve' and L!='solve' and a!='solve' and T!='solve':
         #Lack of paper nearby
         if work == 'ofc':
-            #print work
+            print("work goes here")
     else:
         print('Syntax:  tempOfPlant(temperature, luminosity of star, albedo, distance from star, work)') # Maybe information about the formula can go here.
 
