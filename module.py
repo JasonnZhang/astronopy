@@ -91,17 +91,17 @@ def tempOfPlanet(T='solve', L='solve', a='solve', d='solve', work='ofc'):
 
 # Escape velocity
 def escapeVelocity(v='solve', M='solve', r='solve', work ='mhm'):
-    if v=='solve' and M!='solve' and r!='default':
+    if v=='solve' and M!='solve' and r!='solve':
         v = sqrt((2*const.bigG)/r)
         print('Escape velocity v in m/s = ', v)
         if work == 'mhm':
             print("""v = sqrt(2GM/r)
                     v = """, v)
-    elif M=='solve' and v!='solve' and r!='default:
+    elif M=='solve' and v!='solve' and r!='solve':
         # Lazy again to solve for mass
         if work == 'mhm':
             #print work
-    elif r=='solve' and v!='solve' and M!='default:
+    elif r=='solve' and v!='solve' and M!='solve':
         # 2 algebra 2 function
         if work == 'mhm':
             #print work
@@ -116,7 +116,7 @@ def wien(w='solve', T='solve', work='yes'):
         if work =='yes':
             print("""lambda = c/T
                     lambda = """, w)
-    elif T=='solve' and w!=default:
+    elif T=='solve' and w!='solve':
         T = const.wien/w
         print('Temperature T in K = ', T)
         if work == 'yes':
