@@ -116,17 +116,42 @@ def deg2rad(deg):
 
 ### ORIGINAL PHYSICS SHEET ###
 def kepler3(a='default',P='default',work='pls'):
-    if a == 'default':
+    if a == 'default' and P!='default':
         a = P ** (0.666666)
-        print('Orbital radius A =',a)
+        print('Orbital radius A = ',a)
         if work == 'pls':
             print('''P^2 = a^3
                     a = P^(2/3)
                     a =''',a)
-    elif P == 'default':
+    elif P == 'default' and a!='default':
         P = a ** (1.5)
-        print('Period =',P)
+        print('Period = ',P)
         if work == 'pls':
             print('''P^2 = a^3
                     P = a ** (3/2)
-                    P =''',P)
+                    P = ''',P)
+    else
+        print('Syntax:  kepler3(a, p, work)') # Maybe information about the formula can go here.
+        
+        
+def modulus(d='default', appmag='default', absmag='default', work='yas')
+    if d == 'default' and appmag!='default' and absmag!='default':
+        d = 10 ** (((appmag-absmag)/5)+1)
+        print('Distance d in pc = ', d)
+        if work == 'yas':
+            print('''d = 10^(((m-M)/5)+1)
+                    d = ''', d)
+    elif appmag=='default' and d!='default' and absmag!='default':
+        appmag = 5*log(d/10, 10) + absmag
+        print('Apparent magnitude m = ', appmag)
+        if work == 'yas':
+            print('''m = 5log(0.1d)+M
+                    m = ''', appmag)
+    elif absmag == 'default' and appmag!='default' and d!='default':
+        absmag = -5*log(d/10, 10) + appmag
+        print('Absolute magnitude M = ', absmag)
+        if work == 'yas':
+            print('''M = -5log(0.1d)+m
+                    M = ''', absmag)
+    else
+        print('Syntax:  modulus(d, appmag, absmag, work)') # Maybe information about the formula can go here.
