@@ -27,6 +27,7 @@ earthRadius = 6378 #km
 earthMoonDist = 384400 #km
 
 stefan = 5.670373*(10**-8) #W(m^-2)(K^-4)
+wien = 0.0028977721 #m K
 hubble = 67.8 #(km/s)/Mpc
 bigG = 6.67384*(10**-11) #(m^3)/(kg(s^2))
 c = 299792458 #m/s
