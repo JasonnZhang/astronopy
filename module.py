@@ -35,11 +35,11 @@ def kepler3(a='solve',P='solve',work='pls'):
             print("""P^2 = a^3
                     P = a ** (3/2)
                     P = """,P)
-    else
+    else:
         print('Syntax:  kepler3(a, p, work)') # Maybe information about the formula can go here.
         
 # Distance Modulus   
-def modulus(d='solve', appmag='solve', absmag='solve', work='yas')
+def modulus(d='solve', appmag='solve', absmag='solve', work='yas'):
     if d == 'solve' and appmag!='solve' and absmag!='solve':
         d = 10 ** (((appmag-absmag)/5)+1)
         print('Distance d in pc = ', d)
@@ -58,95 +58,95 @@ def modulus(d='solve', appmag='solve', absmag='solve', work='yas')
         if work == 'yas':
             print("""M = -5log(0.1d)+m
                     M = """, absmag)
-    else
+    else:
         print('Syntax:  modulus(d, appmag, absmag, work)') # Maybe information about the formula can go here.
 
 # Temperature of a planet
 # Process: To find the expected temperature of a planet, you need to set the rate of energy radiated by the planet equal to the rate of energy absorbed by the planet. 
 def tempOfPlanet(T='solve', L='solve', a='solve', d='solve', work='ofc')
-    if T=='solve' and L!='solve' and a!='solve' and d!='solve'
+    if T=='solve' and L!='solve' and a!='solve' and d!='solve':
         fourthroot = (L*(1-a))/(16*const.stefan*pi)
         T = (fourthroot**0.25)*(d**-0.5)
         print('Temperature T in K = ', T)
-        if T > 100 or T < 0
+        if T > 100 or T < 0:
             print('The planet is most likely not habitable. Liquid water cannot exist at this temperature.')
         if work == 'ofc':
             print("""4(pi)(R^2)(sigma)(T^4) = (pi)(R^2)(Lsun)(1-a)/(4(pi)(d^2))
                     T = ((Lsun(1-a)/16(sigma)(pi))^0.25) * (d^-0.5)
                     T = """, T)
-    elif L=='solve' and T!='solve' and a!='solve' and d!='solve'
+    elif L=='solve' and T!='solve' and a!='solve' and d!='solve':
         #I don't feel like doing the algebra here...
         if work == 'ofc':
             #print work
-    elif a=='solve' and L!='solve' and T!='solve' and d!='solve'
+    elif a=='solve' and L!='solve' and T!='solve' and d!='solve':
         #Much algebra very tired
         if work == 'ofc':
             #print work
-    elif d=='solve' and L!='solve' and a!='solve' and T!='solve'
+    elif d=='solve' and L!='solve' and a!='solve' and T!='solve':
         #Lack of paper nearby
         if work == 'ofc':
             #print work
-    else
+    else:
         print('Syntax:  tempOfPlant(temperature, luminosity of star, albedo, distance from star, work)') # Maybe information about the formula can go here.
 
 # Escape velocity
-def escapeVelocity(v='solve', M='solve', r='solve', work ='mhm')
-    if v=='solve' and M!='solve' and r!='default
+def escapeVelocity(v='solve', M='solve', r='solve', work ='mhm'):
+    if v=='solve' and M!='solve' and r!='default:
         v = sqrt((2*const.bigG)/r)
         print('Escape velocity v in m/s = ', v)
-        if work == 'mhm'
+        if work == 'mhm':
             print("""v = sqrt(2GM/r)
                     v = """, v)
-    elif M=='solve' and v!='solve' and r!='default
+    elif M=='solve' and v!='solve' and r!='default:
         # Lazy again to solve for mass
-        if work == 'mhm'
+        if work == 'mhm':
             #print work
-    elif r=='solve' and v!='solve' and M!='default
+    elif r=='solve' and v!='solve' and M!='default:
         # 2 algebra 2 function
-        if work == 'mhm'
+        if work == 'mhm':
             #print work
-    else
+    else:
         print('Syntax:  escapeVeloity(velocity, mass, radius, work)')   
 
 # Wien's Law
-def wien(w='solve', T='solve', work='yes')
-    if w=='solve' and T!='solve'
+def wien(w='solve', T='solve', work='yes'):
+    if w=='solve' and T!='solve':
         w = const.wien/T
         print('Max wavelength lambda in m = ', w)
-        if work =='yes'
+        if work =='yes':
             print("""lambda = c/T
                     lambda = """, w)
-    elif T=='solve' and w!=default
+    elif T=='solve' and w!=default:
         T = const.wien/w
         print('Temperature T in K = ', T)
-        if work == 'yes'
+        if work == 'yes':
             print("""lambda = c/T
                     T = c/lambda
                     T = """, T)
-    else
+    else:
         print('Syntax:  wien(max_wavelength, temperature, work)')
         
 # Luminosity <==> Apparent Brightness
-def lumAppBright(b='solve', L='solve', d='solve', work='hmu')
-    if b=='solve' and L!='solve' and d!='solve'
+def lumAppBright(b='solve', L='solve', d='solve', work='hmu'):
+    if b=='solve' and L!='solve' and d!='solve':
         b = L/(4*pi*(d**2))
         print('Apparent brightness b in W/m^2 = ', b)
-        if work == 'hmu'
+        if work == 'hmu':
             print("""b = L/4*pi*d^2
                     b = """, b)
-    elif L=='solve' and b!='solve' and d!='solve'
+    elif L=='solve' and b!='solve' and d!='solve':
         L = 4*pi*b*(d**2)
         print('Luminosity L in W = ', L)
-        if work == 'hmu'
+        if work == 'hmu':
             print("""b = L/4*pi*d^2
                     L = 4(pi)(b)(d^2)
                     L = """, L)
-    elif d=='solve' and b!='solve' and L!='solve'
+    elif d=='solve' and b!='solve' and L!='solve':
         d = sqrt(L/(4*pi*b))
         print('Distance d in m = ', d)
-        if work == 'hmu'
+        if work == 'hmu':
             print("""b = L/4*pi*d^2
                     d = sqrt(L/(4*pi*b))
                     d = """, d)
-    else
+    else:
         print('Syntax:  lumAppBright(apparent_brightness, luminosity, distance, work)')
