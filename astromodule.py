@@ -34,6 +34,9 @@ earthSurfGrav = 9.78 #m/s^2
 earthRadius = 6378 #km
 earthMoonDist = 384400 #km
 
+###Add Stefan-Boltzmann constant
+
+
 #Milankovitch cycles - don't know if we need these
 
 
@@ -155,3 +158,5 @@ def modulus(d='default', appmag='default', absmag='default', work='yas')
                     M = ''', absmag)
     else
         print('Syntax:  modulus(d, appmag, absmag, work)') # Maybe information about the formula can go here.
+def tempOfPlanet(L='default', A='default', D='default', work='ofc')
+    # Finish this later
