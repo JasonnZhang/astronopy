@@ -26,7 +26,10 @@ earthSurfGrav = 9.78 #m/s^2
 earthRadius = 6378 #km
 earthMoonDist = 384400 #km
 
-constantStefan = 5.670373*(10**-8) #W(m^-2)(K^-4)
+stefan = 5.670373*(10**-8) #W(m^-2)(K^-4)
+hubble = 67.8 #(km/s)/Mpc
+bigG = 6.67384*(10**-11) #(m^3)/(kg(s^2))
+c = 299792458 #m/s
 
 
 #Milankovitch cycles - don't know if we need these
