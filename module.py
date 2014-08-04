@@ -63,7 +63,7 @@ def modulus(d='solve', appmag='solve', absmag='solve', work='yas'):
 
 # Temperature of a planet
 # Process: To find the expected temperature of a planet, you need to set the rate of energy radiated by the planet equal to the rate of energy absorbed by the planet. 
-def tempOfPlanet(T='solve', L='solve', a='solve', d='solve', work='ofc')
+def tempOfPlanet(T='solve', L='solve', a='solve', d='solve', work='ofc'):
     if T=='solve' and L!='solve' and a!='solve' and d!='solve':
         fourthroot = (L*(1-a))/(16*const.stefan*pi)
         T = (fourthroot**0.25)*(d**-0.5)
