@@ -34,7 +34,7 @@ earthSurfGrav = 9.78 #m/s^2
 earthRadius = 6378 #km
 earthMoonDist = 384400 #km
 
-###Add Stefan-Boltzmann constant
+constantStefan = 5.670373*(10**-8) #W(m^-2)(K^-4)
 
 
 #Milankovitch cycles - don't know if we need these
@@ -118,6 +118,8 @@ def deg2rad(deg):
 # # # Formulae, or things with 2 or more numbers # # #
 
 ### ORIGINAL PHYSICS SHEET ###
+
+# Kepler's Law (p^2 = a^3)
 def kepler3(a='default',P='default',work='pls'):
     if a == 'default' and P!='default':
         a = P ** (0.666666)
@@ -136,7 +138,7 @@ def kepler3(a='default',P='default',work='pls'):
     else
         print('Syntax:  kepler3(a, p, work)') # Maybe information about the formula can go here.
         
-        
+# Distance Modulus   
 def modulus(d='default', appmag='default', absmag='default', work='yas')
     if d == 'default' and appmag!='default' and absmag!='default':
         d = 10 ** (((appmag-absmag)/5)+1)
@@ -158,5 +160,36 @@ def modulus(d='default', appmag='default', absmag='default', work='yas')
                     M = ''', absmag)
     else
         print('Syntax:  modulus(d, appmag, absmag, work)') # Maybe information about the formula can go here.
-def tempOfPlanet(L='default', A='default', D='default', work='ofc')
-    # Finish this later
+
+# Temperature of a planet
+# Process: To find the expected temperature of a planet, you need to set the rate of energy radiated by the planet equal to the rate of energy absorbed by the planet. 
+def tempOfPlanet(T='default', L='default', a='default', d='default', work='ofc')
+    if T=='default' and L!='default' and a!='default' and d!='default'
+        fourthroot = (L*(1-a))/(16*constantStefan*pi)
+        T = (fourthroot**0.25)*(d**-0.5)
+        print('Temperature T in K = ', T)
+        if T > 100 or T < 0
+            print('The planet is most likely not habitable. Liquid water cannot exist at this temperature.')
+        if work == 'ofc':
+            print('''4(pi)(R^2)(sigma)(T^4) = (pi)(R^2)(Lsun)(1-a)/(4(pi)(d^2))
+                    T = ((Lsun(1-a)/16(sigma)(pi))^0.25) * (d^-0.5)
+                    T = ''', T)
+    elif L=='default' and T!='default' and a!='default' and d!='default'
+        #I don't feel like doing the algebra here...
+        if work == 'ofc':
+            #print work
+    elif a=='default' and L!='default' and T!='default' and d!='default'
+        #Much algebra very tired
+        if work == 'ofc':
+            #print work
+    elif d=='default' and L!='default' and a!='default' and T!='default'
+        #Lack of paper nearby
+        if work == 'ofc':
+            #print work
+    else
+        print('Syntax:  tempOfPlant(temperature, luminosity of star, albedo, distance from star, work)') # Maybe information about the formula can go here.
+
+
+        
+
+
