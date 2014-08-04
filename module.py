@@ -92,7 +92,7 @@ def tempOfPlanet(T='solve', L='solve', a='solve', d='solve', work='ofc'):
 # Escape velocity
 def escapeVelocity(v='solve', M='solve', r='solve', work ='mhm'):
     if v=='solve' and M!='solve' and r!='solve':
-        v = sqrt((2*const.bigG)/r)
+        v = ((2*const.bigG)/r)**0.5
         print('Escape velocity v in m/s = ', v)
         if work == 'mhm':
             print("""v = sqrt(2GM/r)
