@@ -8,6 +8,9 @@ import constants as const
 # You can do functions within functions, a la C2K(K2F(n)).
 # 3 is cursed. Use int(pi). (http://xkcd.com/1275/)
 
+###### We should find and replace 'default' with 'solve'. What do you think? -A ######
+
+
 
 # # # Formulae, or things with 2 or more numbers # # #
 
@@ -90,15 +93,58 @@ def escapeVelocity(v='default', M='default', r='default', work ='mhm')
         if work == 'mhm'
             print('''v = sqrt(2GM/r)
                     v = ''', v)
-    if M=='default' and v!='default' and r!='default
+    elif M=='default' and v!='default' and r!='default
         # Lazy again to solve for mass
         if work == 'mhm'
             #print work
-    if r=='default' and v!='default' and M!='default
+    elif r=='default' and v!='default' and M!='default
         # 2 algebra 2 function
         if work == 'mhm'
             #print work
     else
         print('Syntax:  escapeVeloity(velocity, mass, radius, work)')   
 
+# Wien's Law
+def wien(w='default', T='default', work='yes')
+    if w=='default' and T!='default'
+        w = const.wien/T
+        print('Max wavelength lambda in m = ', w)
+        if work =='yes'
+            print('''lambda = c/T
+                    lambda = ''', w)
+    elif T=='default' and w!=default
+        T = const.wien/w
+        print('Temperature T in K = ', T)
+        if work == 'yes'
+            print('''lambda = c/T
+                    T = c/lambda
+                    T = ''', T)
+    else
+        print('Syntax:  wien(max_wavelength, temperature, work)')
+        
+# Luminosity <==> Apparent Brightness
+def lumAppBright(b='default', L='default', d='default', work='hmu')
+    if b=='default' and L!='default' and d!='default'
+        b = L/(4*pi*(d**2))
+        print('Apparent brightness b in W/m^2 = ', b)
+        if work == 'hmu'
+            print('''b = L/4*pi*d^2
+                    b = ''', b)
+    elif L=='default' and b!='default' and d!='default'
+        L = 4*pi*b*(d**2)
+        print('Luminosity L in W = ', L)
+        if work == 'hmu'
+            print('''b = L/4*pi*d^2
+                    L = 4(pi)(b)(d^2)
+                    L = ''', L)
+    elif d=='default' and b!=default and L!='default'
+        d = sqrt(L/(4*pi*b))
+        print('Distance d in m = ', d)
+        if work == 'hmu'
+            print('''b = L/4*pi*d^2
+                    d = sqrt(L/(4*pi*b))
+                    d = ''', d)
+    else
+        print('Syntax:  lumAppBright(apparent_brightness, luminosity, distance, work)')
 
+            
