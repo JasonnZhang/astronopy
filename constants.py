@@ -19,7 +19,7 @@ sunPoleRotPeriod = 30 #days
 sunAge = 4570000000 #years
 sunOblique = 7.25 #degrees
 
-earthMass = 5980000000000000000000000 #kg
+earthMass = 5976*(10**24) #kg
 earthDensity = 5515 #kg/m^3
 earthSurfTemp = 287 #K
 earthSurfGrav = 9.78 #m/s^2
