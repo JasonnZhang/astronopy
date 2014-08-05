@@ -1,5 +1,3 @@
-import numpy as np
-
 class Quantity(object):
   def __init__(self, value, numUnits, denUnits):
     self.value = value # numerical value
@@ -15,10 +13,6 @@ class Quantity(object):
       # should probably add something here to concatenate like units (instead of something like 'mm')
     print "%s  %s/%s" % (self.value, self.numUnits, self.denUnits)
 
-class Units(object):
-  def __init__(self, abbr, name, category):
-    self.abbr = abbr # unit abbreviation (i.e. 'm')
-    self.name = name # unit name (i.e. 'meters')
-    self.category = category # unit category (i.e. 'length')
+
 
 
