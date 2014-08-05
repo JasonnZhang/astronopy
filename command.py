@@ -7,6 +7,8 @@ def chdirimp(addr='C:/'):
 	import astro as ap # AstronoPy? Can't use 'as'
 	import convert as cv
 	import constant as cs
+	from units import *
+	from quantity import *
 	
 	print dir(ac)
 	print dir(cv)
