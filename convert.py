@@ -6,8 +6,9 @@ def convert(q, newNumUnits, newDenUnits):
     b = 1
     for (i, item) in enumerate(newNumUnits):
         a *= getConvFactor(q.numUnits[i], newNumUnits[i]
-    for (i, item) in enumerate(newDenUnits):
-        b *= getConvFactor(q.denUnits[i], newDenUnits[i]
+        
+    for (j, item) in enumerate(newDenUnits):
+        b *= getConvFactor(q.denUnits[j], newDenUnits[j]
     x = (a*q)/b
     return Quantity(x, newNumUnits, newDenUnits)
     
