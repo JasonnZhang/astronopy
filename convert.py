@@ -1,6 +1,38 @@
-# # # Conversions, or things with one number # # #
+def convert(q, newNumUnits, newDenUnits):
+    a = 1
+    b = 1
+    for (i, item) in enumerate(newNumUnits):
+        a *= getConvFactor(q.numUnits[i], newNumUnits[i]
+    for (i, item) in enumerate(newDenUnits):
+        b *= getConvFactor(q.denUnits[i], newDenUnits[i]
+    x = (a*q)/b
+    return Quantity(x, newNumUnits, newDenUnits)
+    
+def getConvFactor(m, n)
+    # load dictionaries
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 '''
+# # # Conversions, or things with one number # # #
+
+
 A more elegant way to do these conversions may be something like
 convert(n,origUnit,newUnit), although I suspect it would still
 take a ridiculous number of lines. It would look something like:
@@ -27,7 +59,7 @@ going to take a ridiculous amount of space. Dunno, do you like the
 above format or the one below? I'm opting for the below format since it
 would require the least amount of typing for the user. - C
 
-'''
+
 
 ### TEMPERATURE ###
 def K2C(K):
@@ -71,3 +103,4 @@ def rad2deg(rad):
     return
 def deg2rad(deg):
     return
+'''
