@@ -1,3 +1,5 @@
+from quantity import *
+
 class Units(object):
   def __init__(self, abbr, name, dictionary):
     self.abbr = abbr # unit abbreviation (i.e. 'm')
