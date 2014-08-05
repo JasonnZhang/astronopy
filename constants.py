@@ -17,7 +17,11 @@ sunPhotoTemp = Quantity(6000, [K.abbr], []) #K
 sunCoreTemp = Quantity(15000000, [K.abbr], []) #K
 sunMass = Quantity(1989000000000000000000000000000, [kg.abbr], []) #kg
 sunRadius = Quantity(695590000, [m.abbr], []) #m
-sunDensity = Quantity(1.41, [g.abbr], [cm.abbr, cm.abbr, cm.abbr, ]) #g/cm^3
+sunDensity = Quantity(1.41, [g.abbr], [cm.abbr, cm.abbr, cm.abbr]) #g/cm^3
+sunAbsMag = Quantity(4.8, [mag.abbr], [])
+sunAppMag = Quantity(-26.7, [mag.abbr], [])
+sunEqRotPeriod = Quantity(25.04, [days.abbr], []) #days
+sunPoleRotPeriod = Quantity(30, [days.abbr], []) #days
 
 # # # Earth # # #
 earthMass = Quantity(5976*(10**24), [kg.abbr], []) #kg
@@ -31,13 +35,9 @@ earthMoonDist = Quantity(384400, [km.abbr], []) #km
 '''
 # # # Constants # # #
 
-sunAbsMag = 4.8
-sunAppMag = -26.7
+
 sunFlux = 1370 #W/m^2
-sunEscapeSpeed = 618 #km/s
 sunSurfGrav = 27.9 #times Earth's
-sunEqRotPeriod = 25.04 #days
-sunPoleRotPeriod = 30 #days
 sunAge = 4570000000 #years
 sunOblique = 7.25 #degrees
 
