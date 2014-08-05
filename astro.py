@@ -2,6 +2,8 @@ import numpy as np
 #import scipy as sp
 import convert as cv
 import constants as cs
+from units import *
+from quantity import *
 
 # # # General Pythoning Tips # # #
 # Don't use fractions. Python hates fractions. Convert to decimal floats.
