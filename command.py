@@ -1,7 +1,8 @@
 #Run this file
+import os
 
 def chdirimp(addr='C:/'):
-	import os
+	
 	os.chdir(addr)
 	import astro as ap # AstronoPy? Can't use 'as'
 	import convert as cv
