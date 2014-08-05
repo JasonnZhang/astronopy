@@ -112,8 +112,8 @@ def initUnits():
     ly: 1
     }
     
-# # # Temperature # # #
-# Empty dictionary for non linear conversions (should be handled in convert())
+  # # # Temperature # # #
+  # Empty dictionary for non linear conversions (should be handled in convert())
   K = Units("K", "Kelvin", KDict)
   KDict = {}
   
@@ -122,3 +122,9 @@ def initUnits():
   
   F = Units("F", "Fahrenheit", FDict)
   FDict = {}
+  
+  # # # Magnitude # # #
+  # There is only one unit of magnitude, so the dictionary should be empty.
+  mag = Units("mag", "magnitude", magDict)
+  magDict = {}
+
