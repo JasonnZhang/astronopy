@@ -1,7 +1,7 @@
 import numpy as np
 #import scipy as sp
-import convert as conv
-import constants as const
+import convert as cv
+import constants as cs
 
 # # # General Pythoning Tips # # #
 # Don't use fractions. Python hates fractions. Convert to decimal floats.
@@ -65,7 +65,7 @@ def modulus(d='solve', appmag='solve', absmag='solve', work='yas'):
 # Process: To find the expected temperature of a planet, you need to set the rate of energy radiated by the planet equal to the rate of energy absorbed by the planet. 
 def tempOfPlanet(T='solve', L='solve', a='solve', d='solve', work='ofc'):
     if T=='solve' and L!='solve' and a!='solve' and d!='solve':
-        fourthroot = (L*(1-a))/(16*const.stefan*pi)
+        fourthroot = (L*(1-a))/(16*cs.stefan*pi)
         T = (fourthroot**0.25)*(d**-0.5)
         print('Temperature T in K = ', T)
         if T > 100 or T < 0:
@@ -92,7 +92,7 @@ def tempOfPlanet(T='solve', L='solve', a='solve', d='solve', work='ofc'):
 # Escape velocity
 def escapeVelocity(v='solve', M='solve', r='solve', work ='mhm'):
     if v=='solve' and M!='solve' and r!='solve':
-        v = ((2*const.bigG*M)/r)**0.5
+        v = ((2*cs.bigG*M)/r)**0.5
         print('Escape velocity v in m/s = ', v)
         if work == 'mhm':
             print("""v = sqrt(2GM/r)
@@ -111,13 +111,13 @@ def escapeVelocity(v='solve', M='solve', r='solve', work ='mhm'):
 # Wien's Law
 def wien(w='solve', T='solve', work='yes'):
     if w=='solve' and T!='solve':
-        w = const.wien/T
+        w = cs.wien/T
         print('Max wavelength lambda in m = ', w)
         if work =='yes':
             print("""lambda = c/T
                     lambda = """, w)
     elif T=='solve' and w!='solve':
-        T = const.wien/w
+        T = cs.wien/w
         print('Temperature T in K = ', T)
         if work == 'yes':
             print("""lambda = c/T
