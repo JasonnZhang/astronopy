@@ -62,15 +62,15 @@ def initUnits():
     days: 1
     }
   
-  
-  
-  
-  
-  
-  
   # # # Length # # #
   km = Units("km", "kilometers", kmDict)
-  
+  kmDict = {
+    km: 1,
+    m: 1000,
+    AU: 1/149597871,
+    pc: 1/(3.08567758*(10**13)),
+    ly: 1/(9.4605284*(10**12))
+    }
   
   m = Units("m", "meters", mDict)
   AU = Units("AU", "astronomical units", auDict)
