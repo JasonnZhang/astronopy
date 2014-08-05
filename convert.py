@@ -1,3 +1,4 @@
+from quantity import *
 from units import *
 
 def convert(q, newNumUnits, newDenUnits):
