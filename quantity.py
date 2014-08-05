@@ -8,9 +8,9 @@ class Quantity(object):
   def put(self):
     strNumUnits = ''
     strDenUnits = ''
-    for item in numUnits:
+    for item in self.numUnits:
       strNumUnits += item
-    for item in denUnits:
+    for item in self.denUnits:
       strDenUnits += item
       # should probably add something here to concatenate like units (instead of something like 'mm')
     print "%s  %s/%s" % (self.value, self.numUnits, self.denUnits)
