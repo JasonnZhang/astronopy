@@ -73,7 +73,36 @@ def initUnits():
     }
   
   m = Units("m", "meters", mDict)
-  AU = Units("AU", "astronomical units", auDict)
-  pc = Units("pc", "parsecs", pcDict)
-  ly = Units("ly", "light-years", lyDict)
+  mDict = {
+    km: 1/1000,
+    m: 1,
+    AU: (1/1000)(1/149597871),
+    pc: (1/1000)(1/(3.08567758*(10**13))),
+    ly: (1/1000)(1/(9.4605284*(10**12)))
+    }
   
+  AU = Units("AU", "astronomical units", AUDict)
+  AUDict = {
+    km: 1/kmDict.get(AU),
+    m: 1000/kmDict.get(AU),
+    AU: 1
+    pc: 1/206264.806
+    ly: 1/63239.7263
+    }
+  
+  pc = Units("pc", "parsecs", pcDict)
+  pcDict = {
+    km: 1/kmDict.get(pc)
+    m: 1/mDict.get(pc)
+    AU: 1/AUDict.get(pc)
+    pc: 1
+    ly: 3.26163344
+    }
+  ly = Units("ly", "light-years", lyDict)
+  lyDict = {
+    km: 1/kmDict.get(ly)
+    m: 1/mDict.get(ly)
+    AU: 1/AUDict.get(ly)
+    pc: 1/pcDict.get(ly)
+    ly: 1
+    }
