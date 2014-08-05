@@ -6,6 +6,11 @@ class Units(object):
     self.name = name # unit name (i.e. 'meters')
     self.category = category # unit category (i.e. 'length')
 
+
+# In initUnits(), we define all units and initialize an associated dictionary containing conversions to other units of the same type.
+
+# The convert() function only works for units that are proportional to each other (i.e. km <==> m). It does not work for non-linear conversions, like K <==> C. Therefore, a special if statement needs to be written in the convert() function to handle that specific conversion. The associated dictionary for K and C should be empty as well.
+
 def initUnits():
   # # # Mass # # #
   kg = Units("kg", "kilograms", kgDict)
@@ -106,3 +111,14 @@ def initUnits():
     pc: 1/pcDict.get(ly)
     ly: 1
     }
+    
+# # # Temperature # # #
+# Empty dictionary for non linear conversions (should be handled in convert())
+  K = Units("K", "Kelvin", KDict)
+  KDict = {}
+  
+  C = Units("C", "Celsius", CDict)
+  CDict = {}
+  
+  F = Units("F", "Fahrenheit", FDict)
+  FDict = {}
