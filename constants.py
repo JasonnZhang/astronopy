@@ -1,35 +1,39 @@
 from quantity import *
 from units import *
 
+# This is really helpful: http://physics.nist.gov/cuu/Units/units.html
+
+# # # General # # #
 bigG = Quantity(6.67384*(10**-11), [m.abbr, m.abbr, m.abbr], [kg.abbr, s.abbr, s.abbr]) #(m^3)/(kg(s^2))
 c = Quantity(299792458, [m.abbr], [s.abbr]) #m/s
+hubble = Quantity(67.8/1000000, [km.abbr], [s.abbr, pc.abbr]) #(km/(s*pc))
+wien = Quantity(0.0028977721, [m.abbr, K.abbr], []) #m K
+stefan = Quantity((5.670373*(10**-8)), [kg.abbr], [s.abbr, s.abbr, s.abbr, K.abbr, K.abbr, K.abbr, K.abbr]) #W(m^-2)(K^-4) (converted to base SI units)
 
-stefan = (5.670373*(10**-8) #W(m^-2)(K^-4)
-wien = 0.0028977721 #m K
-hubble = 67.8 #(km/s)/Mpc
+# # # Sun # # #
+sunCoronaTemp = Quantity(1000000, [K.abbr], []) #K
+sunChromTemp = Quantity(10000, [K.abbr], []) #K
+sunPhotoTemp = Quantity(6000, [K.abbr], []) #K
+sunCoreTemp = Quantity(15000000, [K.abbr], []) #K
+sunMass = Quantity(1989000000000000000000000000000, [kg.abbr], []) #kg
+sunRadius = Quantity(695590000, [m.abbr], []) #m
+sunDensity = Quantity(1.41, [g.abbr], [cm.abbr, cm.abbr, cm.abbr, ]) #g/cm^3
 
-
-
+# # # Earth # # #
+earthMass = Quantity(5976*(10**24), [kg.abbr], []) #kg
+earthDensity = Quantity(5515, [kg.abbr], [m.abbr, m.abbr, m.abbr) #kg/m^3
+earthSurfTemp = Quantity(287, [K.abbr], []) #K
+earthSurfGrav = Quantity(9.78, [m.abbr], [s.abbr, s.abbr]) #m/s^2
+earthRadius = Quantity(6378, [km.abbr], []) #km
+earthMoonDist = Quantity(384400, [km.abbr], []) #km
 
 
 '''
 # # # Constants # # #
 
-sun = dict(absMag=4.8,appMag=-26.7,temp=5800,coronaTemp=1000000)
-
-#All temperatures in K
-#All masses in kg
 sunAbsMag = 4.8
 sunAppMag = -26.7
-sunTemp = 5800 #K
-sunCoronaTemp = 1000000 #K
-sunChromTemp = 10000 #K
-sunPhotoTemp = 6000 #K
-sunCoreTemp = 15000000 #K
-sunMass = 1989000000000000000000000000000 #kg
 sunFlux = 1370 #W/m^2
-sunRadius = 695590000 #m
-sunDensity = 1.41 #g/cm^3
 sunEscapeSpeed = 618 #km/s
 sunSurfGrav = 27.9 #times Earth's
 sunEqRotPeriod = 25.04 #days
@@ -37,12 +41,7 @@ sunPoleRotPeriod = 30 #days
 sunAge = 4570000000 #years
 sunOblique = 7.25 #degrees
 
-earthMass = 5976*(10**24) #kg
-earthDensity = 5515 #kg/m^3
-earthSurfTemp = 287 #K
-earthSurfGrav = 9.78 #m/s^2
-earthRadius = 6378 #km
-earthMoonDist = 384400 #km
+
 '''
 
 
