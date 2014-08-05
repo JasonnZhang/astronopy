@@ -1,6 +1,10 @@
 # # # Constants # # #
 
+sun = dict(absMag=4.8,appMag=-26.7,temp=5800,coronaTemp=1000000)
 
+#All temperatures in K
+#All masses in kg
+'''
 sunAbsMag = 4.8
 sunAppMag = -26.7
 sunTemp = 5800 #K
@@ -25,6 +29,7 @@ earthSurfTemp = 287 #K
 earthSurfGrav = 9.78 #m/s^2
 earthRadius = 6378 #km
 earthMoonDist = 384400 #km
+'''
 
 stefan = 5.670373*(10**-8) #W(m^-2)(K^-4)
 wien = 0.0028977721 #m K
