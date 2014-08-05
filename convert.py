@@ -17,23 +17,6 @@ def getConvFactor(m, n)
     return m.dictionary[n]
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 '''
 # # # Conversions, or things with one number # # #
 
