@@ -1,3 +1,5 @@
+from units import *
+
 def convert(q, newNumUnits, newDenUnits):
     a = 1
     b = 1
@@ -10,6 +12,7 @@ def convert(q, newNumUnits, newDenUnits):
     
 def getConvFactor(m, n)
     # load dictionaries
+    return m.dictionary[n]
 
 
 
