@@ -1,4 +1,5 @@
-import * units
+from quantity import *
+from units import *
 
 bigG = Quantity(6.67384*(10**-11), [m.abbr, m.abbr, m.abbr], [kg.abbr, s.abbr, s.abbr]) #(m^3)/(kg(s^2))
 c = Quantity(299792458, [m.abbr], [s.abbr]) #m/s
