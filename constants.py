@@ -25,7 +25,7 @@ sunPoleRotPeriod = Quantity(30, [days.abbr], []) #days
 
 # # # Earth # # #
 earthMass = Quantity(5976*(10**24), [kg.abbr], []) #kg
-earthDensity = Quantity(5515, [kg.abbr], [m.abbr, m.abbr, m.abbr) #kg/m^3
+earthDensity = Quantity(5515, [kg.abbr], [m.abbr, m.abbr, m.abbr]) #kg/m^3
 earthSurfTemp = Quantity(287, [K.abbr], []) #K
 earthSurfGrav = Quantity(9.78, [m.abbr], [s.abbr, s.abbr]) #m/s^2
 earthRadius = Quantity(6378, [km.abbr], []) #km

@@ -25,7 +25,7 @@ def initUnits():
   gDict = {
     kg: 1/kgDict.get(g), 
     g: 1, 
-    msun: gDict.get(kg)*kgDict.get(msun)
+    msun: gDict.get(kg)*kgDict.get(msun),
     mearth: gDict.get(kg)*kgDict.get(mearth)
     }
   
@@ -33,7 +33,7 @@ def initUnits():
   msunDict = {
     kg: 1/kgDict.get(msun), 
     g: 1/gDict.get(msun), 
-    msun: 1
+    msun: 1,
     mearth: msunDict.get(kg)*kgDict.get(mearth)
     }
   
@@ -41,7 +41,7 @@ def initUnits():
   mearthDict = {
     kg: 1/kgDict.get(mearth), 
     g: 1/gDict.get(mearth), 
-    msun: 1/msunDict.get(mearth)
+    msun: 1/msunDict.get(mearth),
     mearth: 1
     }
   
@@ -90,25 +90,25 @@ def initUnits():
   AUDict = {
     km: 1/kmDict.get(AU),
     m: 1000/kmDict.get(AU),
-    AU: 1
-    pc: 1/206264.806
+    AU: 1,
+    pc: 1/206264.806,
     ly: 1/63239.7263
     }
   
   pc = Units("pc", "parsecs", pcDict)
   pcDict = {
-    km: 1/kmDict.get(pc)
-    m: 1/mDict.get(pc)
-    AU: 1/AUDict.get(pc)
-    pc: 1
+    km: 1/kmDict.get(pc),
+    m: 1/mDict.get(pc),
+    AU: 1/AUDict.get(pc),
+    pc: 1,
     ly: 3.26163344
     }
   ly = Units("ly", "light-years", lyDict)
   lyDict = {
-    km: 1/kmDict.get(ly)
-    m: 1/mDict.get(ly)
-    AU: 1/AUDict.get(ly)
-    pc: 1/pcDict.get(ly)
+    km: 1/kmDict.get(ly),
+    m: 1/mDict.get(ly),
+    AU: 1/AUDict.get(ly),
+    pc: 1/pcDict.get(ly),
     ly: 1
     }
     

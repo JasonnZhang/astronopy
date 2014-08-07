@@ -12,7 +12,7 @@ def convert(q, newNumUnits, newDenUnits):
     x = (a*q)/b
     return Quantity(x, newNumUnits, newDenUnits)
     
-def getConvFactor(m, n)
+def getConvFactor(m, n):
     # load dictionaries
     return m.dictionary[n]
 
