@@ -4,7 +4,7 @@ from units import *
 # This is really helpful: http://physics.nist.gov/cuu/Units/units.html
 
 # # # General # # #
-bigG = Quantity(6.67384*(10**-11), [units.m.abbr, units.m.abbr, units.m.abbr], [units.kg.abbr, units.s.abbr, units.s.abbr]) #(m^3)/(kg(s^2))
+bigG = Quantity(6.67384*(10**-11), [m.abbr, m.abbr, m.abbr], [kg.abbr, s.abbr, s.abbr]) #(m^3)/(kg(s^2))
 c = Quantity(299792458, [m.abbr], [s.abbr]) #m/s
 hubble = Quantity(67.8/1000000, [km.abbr], [s.abbr, pc.abbr]) #(km/(s*pc))
 wien = Quantity(0.0028977721, [m.abbr, K.abbr], []) #m K
