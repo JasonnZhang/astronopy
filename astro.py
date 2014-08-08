@@ -260,7 +260,7 @@ def modulus(d, appmag, absmag, work='true'):
     convd = convert(d, [pc], [])
     return Quantity(appmag - (-5*(np.log10(convd.value)-1)), [mag], [])
 
-def wien(lba, T, work='true'):
+def wienslaw(lba, T, work='true'):
   if lba == None:
     return Quantity(wien.value/T.value, [m], [])
   elif T == None:
