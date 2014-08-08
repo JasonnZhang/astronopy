@@ -2,7 +2,7 @@ import numpy as np
 #import scipy as sp
 import convert as cv
 import constants as cs
-from units import *
+import units as units
 from quantity import *
 
 # # # General Pythoning Tips # # #
