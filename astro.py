@@ -4,7 +4,7 @@ import convert as cv
 import units as units
 units.initUnits()
 import constants as cs
-from quantity import *
+import quantity as qt
 
 # # # General Pythoning Tips # # #
 # Don't use fractions. Python hates fractions. Convert to decimal floats.
