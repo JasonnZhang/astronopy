@@ -88,8 +88,8 @@ def initUnits():
   m = Units("m", "meters", mDict)
   
   AUDict = {
-    'km': 1/kmDict.get('AU'),
-    'm': 1000/kmDict.get('AU'),
+    'km': 149597871,
+    'm': 1000*149597871,
     'AU': 1,
     'pc': 1/206264.806,
     'ly': 1/63239.7263
@@ -97,8 +97,8 @@ def initUnits():
   AU = Units("AU", "astronomical units", AUDict)
 
   pcDict = {
-    'km': 1/kmDict.get('pc'),
-    'm': 1/mDict.get('pc'),
+    'km': (3.08567758*(10**13)),
+    'm': (3.08567758*(10**16)),
     'AU': 1/AUDict.get('pc'),
     'pc': 1,
     'ly': 3.26163344
@@ -106,8 +106,8 @@ def initUnits():
   pc = Units("pc", "parsecs", pcDict)
   
   lyDict = {
-    'km': 1/kmDict.get('ly'),
-    'm': 1/mDict.get('ly'),
+    'km': (9.4605284*(10**12)),
+    'm': (9.4605284*(10**15)),
     'AU': 1/AUDict.get('ly'),
     'pc': 1/pcDict.get('ly'),
     'ly': 1
