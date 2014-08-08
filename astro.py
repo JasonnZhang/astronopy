@@ -235,14 +235,18 @@ def kepler3(period, semimajor, m1, m2, work='true'):
 
 def modulus(d, appmag, absmag, work='true')
   if d == None:
-    return Quantity(10**((0.2*(appmag-absmag))+1))
+    return Quantity(10**((0.2*(appmag-absmag))+1), [pc], [])
   elif appmag == None:
     convd = convert(d, [pc], [])
-    return 5*(np.log10(convd.value)-1) + absmag
+    return Quantity(5*(np.log10(convd.value)-1) + absmag, [mag], [])
   elif absmag == None:
     convd = convert(d, [pc], [])
-    return appmag - (-5*(np.log10(convd.value)-1))
+    return Quantity(appmag - (-5*(np.log10(convd.value)-1)), [mag], [])
 
-
+def wien(lba, T, work='true')
+  if lba == None:
+    return Quantity(wien.value/T.value, [m], [])
+  elif T == None:
+    return Quantity(wien.value/lba.value [K], [])
 
 
