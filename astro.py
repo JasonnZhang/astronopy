@@ -11,7 +11,6 @@ class Quantity(object):
         if item in self.denUnits:
           self.numUnits.remove(item)
           self.denUnits.remove(item)
-    self.put()  
   def put(self):
     strNumUnits = ''
     strDenUnits = ''
