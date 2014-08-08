@@ -201,6 +201,18 @@ def getConvFactor(m, n):
     # load dictionaries
     return m.dictionary[n.abbr]
 
+
+### EXPERIMENTAL
+def simplify(qty):
+  uniqNumUnits = list(set(qty.numUnits))
+  uniqDenUnits = list(set(qty.denUnits))
+  for item in qty.numUnits:
+    if item in qty.denUnits:
+      qty.numUnits.remove(item)
+      qty.denUnits.remove(item)
+  qty.put()
+    
+
 #module.py
 '''
 # # # Catalog # # #
