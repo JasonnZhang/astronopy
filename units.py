@@ -39,8 +39,8 @@ def initUnits():
 
   
   mearthDict = {
-    'kg': 1/kgDict.get('mearth'), 
-    'g': 1/gDict.get('mearth'), 
+    'kg': (5976*(10**24)), 
+    'g': 1.9891*(10**33), 
     'msun': 1/msunDict.get('mearth'),
     'mearth': 1
     }
