@@ -41,7 +41,7 @@ def initUnits():
   mearthDict = {
     'kg': (5976*(10**24)), 
     'g': 1.9891*(10**33), 
-    'msun': 1/msunDict.get('mearth'),
+    'msun': 3.0024584*(10**-6),
     'mearth': 1
     }
   mearth = Units("mearth", "earth mass", mearthDict)
