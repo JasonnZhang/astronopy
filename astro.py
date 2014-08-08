@@ -207,11 +207,11 @@ def convert(q, newNumUnits, newDenUnits):
     b = 1
     for (i, item) in enumerate(newNumUnits):
         a *= getConvFactor(q.numUnits[i], newNumUnits[i])
-        
+        print "numconvfac = " + str(getConvFactor(q.numUnits[i], newNumUnits[i]))
     for (j, item) in enumerate(newDenUnits):
         b *= getConvFactor(q.denUnits[j], newDenUnits[j])
-    print "a = " + str(a)
-    print "b = " + str(b)
+        print "denconvfac = " + str(getConvFactor(q.denUnits[j], newDenUnits[j]))
+    
     x = (a*(q.value))/b
     return Quantity(x, newNumUnits, newDenUnits)
     
