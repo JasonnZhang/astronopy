@@ -14,43 +14,43 @@ class Units(object):
 def initUnits():
   # # # Mass # # #
   kgDict = {
-    kg: 1, 
-    g: 1000, 
-    msun: 1/1989000000000000000000000000000, 
-    mearth: 1/(5976*(10**24))
+    'kg': 1, 
+    'g': 1000, 
+    'msun': 1/1989000000000000000000000000000, 
+    'mearth': 1/(5976*(10**24))
     }
   kg = Units("kg", "kilograms", kgDict)
   
   gDict = {
-    kg: 1/kgDict.get(g), 
-    g: 1, 
-    msun: gDict.get(kg)*kgDict.get(msun),
-    mearth: gDict.get(kg)*kgDict.get(mearth)
+    'kg': 1/kgDict.get('g'), 
+    'g': 1, 
+    'msun': (1/kgDict.get('g'))*kgDict.get('msun'),
+    'mearth': (1/kgDict.get('g'))*kgDict.get('mearth')
     }
   g = Units("g", "grams", gDict)
   
   msunDict = {
-    kg: 1/kgDict.get(msun), 
-    g: 1/gDict.get(msun), 
-    msun: 1,
-    mearth: msunDict.get(kg)*kgDict.get(mearth)
+    'kg': , 
+    'g': 1/gDict.get('msun'), 
+    'msun': 1,
+    'mearth': (1/kgDict.get('msun'))*kgDict.get('mearth')
     }
   msun = Units("msun", "solar mass", msunDict)
 
   
   mearthDict = {
-    kg: 1/kgDict.get(mearth), 
-    g: 1/gDict.get(mearth), 
-    msun: 1/msunDict.get(mearth),
-    mearth: 1
+    'kg': 1/kgDict.get('mearth'), 
+    'g': 1/gDict.get('mearth'), 
+    'msun': 1/msunDict.get('mearth'),
+    'mearth': 1
     }
   mearth = Units("mearth", "earth mass", mearthDict)
   
   # # # Time # # #
   sDict = {
-    s: 1, 
-    hrs: (1/3600), 
-    days: (1/86400)
+    's': 1, 
+    'hrs': (1/3600), 
+    'days': (1/86400)
     }
   s = Units("s", "seconds", sDict)
     
