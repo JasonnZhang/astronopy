@@ -1,10 +1,4 @@
 import numpy as np
-#import scipy as sp
-import convert as cv
-import units as units
-units.initUnits()
-import constants as cs
-
 
 # # # General Pythoning Tips # # #
 # Don't use fractions. Python hates fractions. Convert to decimal floats.
