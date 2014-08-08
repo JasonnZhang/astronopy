@@ -210,6 +210,8 @@ def convert(q, newNumUnits, newDenUnits):
         
     for (j, item) in enumerate(newDenUnits):
         b *= getConvFactor(q.denUnits[j], newDenUnits[j])
+    print "a = " + str(a)
+    print "b = " + str(b)
     x = (a*(q.value))/b
     return Quantity(x, newNumUnits, newDenUnits)
     
