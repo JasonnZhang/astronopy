@@ -215,7 +215,7 @@ def convert(q, newNumUnits, newDenUnits):
     
 def getConvFactor(m, n):
     # load dictionaries
-    return m.dictionary[n]
+    return m.dictionary[n.abbr]
 
 
 
