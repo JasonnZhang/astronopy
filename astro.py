@@ -21,7 +21,7 @@ class Quantity(object):
         strNumUnits += (item.abbr)
       else:
         strNumUnits += ("*"+item.abbr)
-    for item in self.denUnits:
+    for index, item in enumerate(self.denUnits):
       if index == 0:
         strDenUnits += (item.abbr)
       else:
