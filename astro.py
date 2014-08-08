@@ -182,20 +182,6 @@ earthRadius = Quantity(6378, [km], []) #km
 earthMoonDist = Quantity(384400, [km], []) #km
 
 
-  '''
-  # # # Constants # # #
-  
-  
-  sunFlux = 1370 #W/m^2
-  sunSurfGrav = 27.9 #times Earth's
-  sunAge = 4570000000 #years
-  sunOblique = 7.25 #degrees
-  
-  
-  '''
-  
-  #Milankovitch cycles - don't know if we need these
-
 
 #convert.py
 def convert(q, newNumUnits, newDenUnits):
@@ -225,15 +211,27 @@ Escape velocity** missing some algebra
 Wien's law
 Luminosity & app brightness
 '''
-def kepler3(m1, m2, a, work=true)
-  convperiod = convert(orbital_period, [s], [])
-  convm1 = convert(m1, [kg], [])
-  convm2 = convert(m2, [kg], [])
-  conva = convert(a, [m], [])
-  print numpy.roots([-1, 0, (4*(conva**3)(np.pi**2)/bigG.value*(convm1.value+m2.value))[0]
-  print numpy.roots([-1, 0, (4*(conva**3)(np.pi**2)/bigG.value*(convm1.value+m2.value))[1]
-
-
+def kepler3(period, semimajor, m1, m2, work='true'):
+  if period == None:
+    convm1 = convert(m1, [kg], [])
+    convm2 = convert(m2, [kg], [])
+    conva = convert(semimajor, [m], [])
+    return Quantity((4*(np.pi**2)*(conva.value**3))/(bigG.value*(convm1.value+convm2.value))**0.5, [s], [])
+  elif semimajor == None:
+    convperiod = convert(period, [s], [])
+    convm1 = convert(m1, [kg], [])
+    convm2 = convert(m2, [kg], [])
+    return Quantity((((convperiod.value**2)*(bigG.value*(convm1.value+convm2.value))/(4*(np.pi**2)*(conva.value**3)))**0.666666666666666), [m], [])
+  elif m1 == None:
+    convperiod = convert(period, [s], [])
+    convm2 = convert(m2, [kg], [])
+    conva = convert(semimajor, [m], [])
+    return Quantity(((4*(np.pi**2)*(conva.value**3))/(bigG.value*(convperiod.value**2)))-convm2.value, [kg], [])
+  elif m2 == None:
+    convperiod = convert(period, [s], [])
+    convm1 = convert(m1, [kg], [])
+    conva = convert(semimajor, [m], [])
+    return Quantity(((4*(np.pi**2)*(conva.value**3))/(bigG.value*(convperiod.value**2)))-convm1.value, [kg], [])
 
 
 
