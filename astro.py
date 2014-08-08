@@ -1,8 +1,9 @@
 import numpy as np
 #import scipy as sp
 import convert as cv
-import constants as cs
 import units as units
+units.initUnits()
+import constants as cs
 from quantity import *
 
 # # # General Pythoning Tips # # #
