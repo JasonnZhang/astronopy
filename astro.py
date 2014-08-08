@@ -233,6 +233,16 @@ def kepler3(period, semimajor, m1, m2, work='true'):
     conva = convert(semimajor, [m], [])
     return Quantity(((4*(np.pi**2)*(conva.value**3))/(bigG.value*(convperiod.value**2)))-convm1.value, [kg], [])
 
+def modulus(d, appmag, absmag, work='true')
+  if d == None:
+    return Quantity(10**((0.2*(appmag-absmag))+1))
+  elif appmag == None:
+    convd = convert(d, [pc], [])
+    return 5*(np.log10(convd.value)-1) + absmag
+  elif absmag == None:
+    convd = convert(d, [pc], [])
+    return appmag - (-5*(np.log10(convd.value)-1))
+
 
 
 
