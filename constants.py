@@ -1,6 +1,6 @@
 from quantity import *
 from units import *
-
+initUnits()
 # This is really helpful: http://physics.nist.gov/cuu/Units/units.html
 
 # # # General # # #
