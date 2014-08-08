@@ -225,3 +225,16 @@ Escape velocity** missing some algebra
 Wien's law
 Luminosity & app brightness
 '''
+def kepler3(m1, m2, a, work=true)
+  convperiod = convert(orbital_period, [s], [])
+  convm1 = convert(m1, [kg], [])
+  convm2 = convert(m2, [kg], [])
+  conva = convert(a, [m], [])
+  print numpy.roots([-1, 0, (4*(conva**3)(np.pi**2)/bigG.value*(convm1.value+m2.value))[0]
+  print numpy.roots([-1, 0, (4*(conva**3)(np.pi**2)/bigG.value*(convm1.value+m2.value))[1]
+
+
+
+
+
+
