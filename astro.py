@@ -17,9 +17,9 @@ class Quantity(object):
     strNumUnits = ''
     strDenUnits = ''
     for item in self.numUnits:
-      strNumUnits += item.abbr
+      strNumUnits += ("*"+item.abbr)
     for item in self.denUnits:
-      strDenUnits += item.abbr
+      strDenUnits += ("*"+item.abbr)
       # should probably add something here to concatenate like units (instead of something like 'mm')
     print "%s  %s/%s" % (self.value, strNumUnits, strDenUnits)
     
