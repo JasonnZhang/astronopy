@@ -50,7 +50,11 @@ from astro import *
 qtyb = convert(qtya, [kg, km], [hrs])
 qtyb.put()
 </code></pre>
-<h4>Kepler's 3rd Law</h4>
+<h4>Unit simplification</h4>
+<pre><code>qty = Quantity(15, [kg, m, s], [m, s, s])
+qty.put()
+</code></pre>
+<h4>Kepler's 3rd law</h4>
 <pre><code>p = Quantity(365, [days], [])
 a = Quantity(1, [AU], [])
 m1 = Quantity(1, [msun], [])
