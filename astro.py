@@ -16,10 +16,16 @@ class Quantity(object):
   def put(self):
     strNumUnits = ''
     strDenUnits = ''
-    for item in self.numUnits:
-      strNumUnits += ("*"+item.abbr)
+    for index, item in enumerate(self.numUnits):
+      if index == 0:
+        strNumUnits += (item.abbr)
+      else:
+        strNumUnits += ("*"+item.abbr)
     for item in self.denUnits:
-      strDenUnits += ("*"+item.abbr)
+      if index == 0:
+        strDenUnits += (item.abbr)
+      else:
+        strDenUnits += ("*"+item.abbr)
       # should probably add something here to concatenate like units (instead of something like 'mm')
     print "%s  %s/%s" % (self.value, strNumUnits, strDenUnits)
     
@@ -207,10 +213,10 @@ def convert(q, newNumUnits, newDenUnits):
     b = 1
     for (i, item) in enumerate(newNumUnits):
         a *= getConvFactor(q.numUnits[i], newNumUnits[i])
-        print "numconvfac = " + str(getConvFactor(q.numUnits[i], newNumUnits[i]))
+        # debugging only print "numconvfac = " + str(getConvFactor(q.numUnits[i], newNumUnits[i]))
     for (j, item) in enumerate(newDenUnits):
         b *= getConvFactor(q.denUnits[j], newDenUnits[j])
-        print "denconvfac = " + str(getConvFactor(q.denUnits[j], newDenUnits[j]))
+        # debugging only print "denconvfac = " + str(getConvFactor(q.denUnits[j], newDenUnits[j]))
     
     x = (a*(q.value))/b
     return Quantity(x, newNumUnits, newDenUnits)
