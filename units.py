@@ -33,7 +33,7 @@ def initUnits():
     'kg': 1989000000000000000000000000000, 
     'g': 1989000000000000000000000000000000, 
     'msun': 1,
-    'mearth': (1/kgDict.get('msun'))*kgDict.get('mearth')
+    'mearth': (1989000000000000000000000000000)*kgDict.get('mearth')
     }
   msun = Units("msun", "solar mass", msunDict)
 
