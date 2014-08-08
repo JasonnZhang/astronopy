@@ -45,17 +45,17 @@ from astro import *
 <h3>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h3>
 <p>Coming soon.</p>
-<h4><code>Quantity</code> Class and <code>convert()</code></h4>
+<h4>convert()</h4>
 <pre><code>qtya = Quantity(12345, [kg, m], [s, s])
 qtyb = convert(qtya, [kg, km], [s, s])
 qtyb.put()
 </code></pre>
-<h4><code>kepler3()</code></h4>
+<h4>kepler3()</h4>
 <pre><code>p = Quantity(365, [days], [])
 a = Quantity(1, [AU], [])
 m1 = Quantity(1, [msun], [])
 m2 = kepler3(p, a, m1, None)
-m2.put()
+m2.put() # Earth mass calculated as a 2-body system
 </code></pre>
 <!--<p>The documentation is in progress.</p>
 <h4>Constants</h4>
