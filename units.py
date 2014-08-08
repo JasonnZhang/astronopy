@@ -30,7 +30,7 @@ def initUnits():
   g = Units("g", "grams", gDict)
   
   msunDict = {
-    'kg': , 
+    'kg': 1989000000000000000000000000000, 
     'g': 1/gDict.get('msun'), 
     'msun': 1,
     'mearth': (1/kgDict.get('msun'))*kgDict.get('mearth')
