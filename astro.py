@@ -6,6 +6,12 @@ class Quantity(object):
     self.value = value # numerical value
     self.numUnits = numUnits # array of units in the numerator, i.e. {kg.abbr, m.abbr, m.abbr}
     self.denUnits = denUnits # array of units in the denominator, i.e. {s.abbr, s.abbr}
+    for x in xrange(0, len(self.numUnits)):  
+      for item in self.numUnits:
+        if item in self.denUnits:
+          self.numUnits.remove(item)
+          self.denUnits.remove(item)
+    self.put()  
   def put(self):
     strNumUnits = ''
     strDenUnits = ''
@@ -21,6 +27,14 @@ class Quantity(object):
         strDenUnits += ("*"+item.abbr)
       # should probably add something here to concatenate like units (instead of something like 'mm')
     print "%s  %s/%s" % (self.value, strNumUnits, strDenUnits)
+
+def simplify(qty):
+  for x in xrange(0, len(qty.numUnits)):  
+    for item in qty.numUnits:
+      if item in qty.denUnits:
+        qty.numUnits.remove(item)
+        qty.denUnits.remove(item)
+  qty.put()
     
 #units.py
 class Units(object):
@@ -202,15 +216,6 @@ def getConvFactor(m, n):
     return m.dictionary[n.abbr]
 
 
-### EXPERIMENTAL
-def simplify(qty):
-  uniqNumUnits = list(set(qty.numUnits))
-  uniqDenUnits = list(set(qty.denUnits))
-  for item in qty.numUnits:
-    if item in qty.denUnits:
-      qty.numUnits.remove(item)
-      qty.denUnits.remove(item)
-  qty.put()
     
 
 #module.py
@@ -245,7 +250,7 @@ def kepler3(period, semimajor, m1, m2, work='true'):
     conva = convert(semimajor, [m], [])
     return Quantity(((4*(np.pi**2)*(conva.value**3))/(bigG.value*(convperiod.value**2)))-convm1.value, [kg], [])
 
-def modulus(d, appmag, absmag, work='true')
+def modulus(d, appmag, absmag, work='true'):
   if d == None:
     return Quantity(10**((0.2*(appmag-absmag))+1), [pc], [])
   elif appmag == None:
@@ -255,7 +260,7 @@ def modulus(d, appmag, absmag, work='true')
     convd = convert(d, [pc], [])
     return Quantity(appmag - (-5*(np.log10(convd.value)-1)), [mag], [])
 
-def wien(lba, T, work='true')
+def wien(lba, T, work='true'):
   if lba == None:
     return Quantity(wien.value/T.value, [m], [])
   elif T == None:
