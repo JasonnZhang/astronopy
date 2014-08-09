@@ -252,13 +252,13 @@ def kepler3(period, semimajor, m1, m2, work='true'):
 
 def modulus(d, appmag, absmag, work='true'):
   if d == None:
-    return Quantity(10**((0.2*(appmag-absmag))+1), [pc], [])
+    return Quantity(10**((0.2*(appmag.value-absmag.value))+1), [pc], [])
   elif appmag == None:
     convd = convert(d, [pc], [])
-    return Quantity(5*(np.log10(convd.value)-1) + absmag, [mag], [])
+    return Quantity(5*(np.log10(convd.value)-1) + absmag.value, [mag], [])
   elif absmag == None:
     convd = convert(d, [pc], [])
-    return Quantity(appmag - (-5*(np.log10(convd.value)-1)), [mag], [])
+    return Quantity(appmag.value - (-5*(np.log10(convd.value)-1)), [mag], [])
 
 def wienslaw(lba, T, work='true'):
   if lba == None:
