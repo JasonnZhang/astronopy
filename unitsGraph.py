@@ -50,20 +50,17 @@ ly = Units("ly", "light-years", "length")
 
 
 
-def shortestPath(graph, start, end, path=[]):
+def find_path(graph, start, end, path=[]):
         path = path + [start]
         if start == end:
             return path
         if not graph.has_key(start):
             return None
-        shortest = None
         for node in graph[start]:
             if node not in path:
-                newpath = shortestPath(graph, node, end, path)
-                if newpath:
-                    if not shortest or len(newpath) < len(shortest):
-                        shortest = newpath
-        return shortest
+                newpath = find_path(graph, node, end, path)
+                if newpath: return newpath
+        return None
 
 
 # Length
@@ -73,7 +70,7 @@ lengthFactorGraph = {'m': 0.001, 'km': 6.68458712*(10**-9), 'AU': 1.58128451*(10
 
 def getConvFactor(lengthLinkGraph, start, end):
   factor = 1
-  for node in shortestPath(lengthLinkGraph, start.abbr, end.abbr): # replace start and end with start unit &nd end unit
+  for node in find_path(lengthLinkGraph, start.abbr, end.abbr): # replace start and end with start unit &nd end unit
     factor *= lengthFactorGraph.get(node)
   return factor
 
