@@ -264,6 +264,6 @@ def wienslaw(lba, T, work='true'):
   if lba == None:
     return Quantity(wien.value/T.value, [m], [])
   elif T == None:
-    return Quantity(wien.value/lba.value [K], [])
+    return Quantity(wien.value/lba.value, [K], [])
 
 
