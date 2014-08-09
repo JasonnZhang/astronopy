@@ -224,8 +224,8 @@ def getConvFactor(m, n):
 -Kepler's law-
 -Distance mod-
 -Wien's law-
+-Escape velocity-
 Planetary temperature
-Escape velocity
 Luminosity & app brightness
 '''
 def kepler3(period, semimajor, m1, m2, work='true'):
@@ -280,3 +280,8 @@ def escapeVel(escape_velocity, mass, radius, work='true'):
     mass = convert(mass, [kg], [])
     return Quantity((2*bigG.value*mass.value)/(escape_velocity.value**2), [m], [])
 
+def planetTemp(temp, luminosity, albedo, distance, work='true'):
+  if temp == None:
+    convert(luminosity, [m, m, kg], [s, s, s])
+    convert(distance, [m], [])
+    return Quantity((((luminosity.value*(1-albedo))/(16*stefan.value*np.pi))**0.25)*(distance.value**-0.5), [K], [])
