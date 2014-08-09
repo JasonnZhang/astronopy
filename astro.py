@@ -260,10 +260,23 @@ def modulus(d, appmag, absmag, work='true'):
     convd = convert(d, [pc], [])
     return Quantity(appmag.value - (-5*(np.log10(convd.value)-1)), [mag], [])
 
-def wienslaw(lba, T, work='true'):
+def wiensLaw(lba, T, work='true'):
   if lba == None:
     return Quantity(wien.value/T.value, [m], [])
   elif T == None:
     return Quantity(wien.value/lba.value, [K], [])
 
+def escapeVel(escape_velocity, mass, radius, work='true'):
+  if escape_velocity == None:
+    mass = convert(mass, [kg], [])
+    radius = convert(radius, [m], [])
+    return Quantity(np.sqrt((2*bigG.value*mass.value)/radius.value), [m], [s])
+  elif mass == None:
+    escape_velocity = convert(escape_velocity, [m], [s])
+    radius = convert(radius, [m], [])
+    return Quantity(((escape_velocity**2)*radius.value)/(2*bigG.value), [kg], [])
+  elif radius == None:
+    escape_velocity = convert(escape_velocity, [m], [s])
+    mass = convert(mass, [kg], [])
+    return Quantity((2*bigG.value*mass.value)/(escape_velocity.value**2), [m], [])
 
