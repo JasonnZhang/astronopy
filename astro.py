@@ -52,7 +52,7 @@ kgDict = {
   'msun': 1/1989000000000000000000000000000, 
   'mearth': 1/(5976*(10**24))
   }
-kg = Units("kg", "kilograms", kgDict)
+kg = Units("kg", "kilograms", kgDict, "mass")
 
 gDict = {
   'kg': 1/kgDict.get('g'), 
@@ -60,7 +60,7 @@ gDict = {
   'msun': (1/kgDict.get('g'))*kgDict.get('msun'),
   'mearth': (1/kgDict.get('g'))*kgDict.get('mearth')
   }
-g = Units("g", "grams", gDict)
+g = Units("g", "grams", gDict, "mass")
 
 msunDict = {
   'kg': 1989000000000000000000000000000, 
@@ -68,7 +68,7 @@ msunDict = {
   'msun': 1,
   'mearth': (1989000000000000000000000000000)*kgDict.get('mearth')
   }
-msun = Units("msun", "solar mass", msunDict)
+msun = Units("msun", "solar mass", msunDict, "mass")
 
 
 mearthDict = {
@@ -77,7 +77,7 @@ mearthDict = {
   'msun': 3.0024584*(10**-6),
   'mearth': 1
   }
-mearth = Units("mearth", "earth mass", mearthDict)
+mearth = Units("mearth", "earth mass", mearthDict, "mass")
 
 # # # Time # # #
 sDict = {
@@ -85,21 +85,21 @@ sDict = {
   'hrs': (1/3600), 
   'days': (1/86400)
   }
-s = Units("s", "seconds", sDict)
+s = Units("s", "seconds", sDict, "time")
   
 hrsDict = {
   's': 3600, 
   'hrs': 1, 
   'days': 24
   }
-hrs = Units("hrs", "hours", hrsDict)
+hrs = Units("hrs", "hours", hrsDict, "time")
 
 daysDict = {
   's': 86400, 
   'hrs': 24, 
   'days': 1
   }
-days = Units("days", "days", daysDict)
+days = Units("days", "days", daysDict, "time")
 
 # # # Length # # #
 kmDict = {
@@ -109,7 +109,7 @@ kmDict = {
   'pc': 1/(3.08567758*(10**13)),
   'ly': 1/(9.4605284*(10**12))
   }
-km = Units("km", "kilometers", kmDict)
+km = Units("km", "kilometers", kmDict, "length")
 
 mDict = {
   'km': 0.001,
@@ -118,7 +118,7 @@ mDict = {
   'pc': (0.001)*(1/(3.08567758*(10**13))),
   'ly': (0.001)*(1/(9.4605284*(10**12)))
   }
-m = Units("m", "meters", mDict)
+m = Units("m", "meters", mDict, "length")
 
 AUDict = {
   'km': 149597871,
@@ -127,7 +127,7 @@ AUDict = {
   'pc': 1/206264.806,
   'ly': 1/63239.7263
   }
-AU = Units("AU", "astronomical units", AUDict)
+AU = Units("AU", "astronomical units", AUDict, "length")
 
 pcDict = {
   'km': (3.08567758*(10**13)),
@@ -136,7 +136,7 @@ pcDict = {
   'pc': 1,
   'ly': 3.26163344
   }
-pc = Units("pc", "parsecs", pcDict)
+pc = Units("pc", "parsecs", pcDict, "length")
 
 lyDict = {
   'km': (9.4605284*(10**12)),
@@ -145,23 +145,23 @@ lyDict = {
   'pc': 1/pcDict.get('ly'),
   'ly': 1
   }
-ly = Units("ly", "light-years", lyDict)
+ly = Units("ly", "light-years", lyDict, "length")
   
 # # # Temperature # # #
 # Empty dictionary for non linear conversions (should be handled in convert())
 KDict = {}
-K = Units("K", "Kelvin", KDict)
+K = Units("K", "Kelvin", KDict, "temperature")
 
 CDict = {}
-C = Units("C", "Celsius", CDict)
+C = Units("C", "Celsius", CDict, "temperature")
 
 FDict = {}
-F = Units("F", "Fahrenheit", FDict)
+F = Units("F", "Fahrenheit", FDict, "temperature")
 
 # # # Magnitude # # #
 # There is only one unit of magnitude, so the dictionary should be empty.
 magDict = {}
-mag = Units("mag", "magnitude", magDict)
+mag = Units("mag", "magnitude", magDict, "magnitude")
   
 #constants.py
 
