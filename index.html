@@ -67,7 +67,14 @@ sunAbsMag = Quantity(4.83, [mag], [])
 d = modulus(None, sunAppMag, sunAbsMag)
 d.put() # Earth-Sun distance calculated from solar magnitudes
 </code></pre>
-
+<h4>Wien's Law</h4>
+<pre><code>]# Not working for some reason
+</code></pre>
+<h4>Escape velocity</h4>
+<pre><code>mass = Quantity(1, [mearth], [])
+v = escapeVel(None, mass, earthRadius)
+v.put() # Earth's escape velocity
+</code></pre>
 
 
 
