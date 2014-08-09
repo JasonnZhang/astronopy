@@ -37,16 +37,18 @@ def simplify(qty):
     
 #units.py
 class Units(object):
-  def __init__(self, abbr, name, unitType):
+  def __init__(self, abbr, name, unitType, factor):
     self.abbr = abbr # unit abbreviation (i.e. 'm')
     self.name = name # unit name (i.e. 'meters')
     self.unitType = unitType
 
-km = Units("km", "kilometers", "length")
-m = Units("m", "meters", "length")
-AU = Units("AU", "astronomical units", "length")
-pc = Units("pc", "parsecs", "length")
-ly = Units("ly", "light-years", "length")
+m = Units("m", "meters", "length", 0.001)
+km = Units("km", "kilometers", "length", 6.68458712*(10**-9))
+AU = Units("AU", "astronomical units", "length", 1.58128451*(10**-5))
+ly = Units("ly", "light-years", "length", 0.306594845)
+pc = Units("pc", "parsecs", "length", 3.08567758*(10**16))
+
+lengthgraph = {m: km, km: AU, AU: ly, ly: pc, pc: m}
 
 
 
@@ -62,11 +64,6 @@ def find_path(graph, start, end, path=[]):
                 if newpath: return newpath
         return None
 
-
-# Length
-
-lengthLinkGraph = {'m': 'km', 'km': 'AU', 'AU': 'ly', 'ly': 'pc', 'pc': 'm'}
-lengthFactorGraph = {'m': 0.001, 'km': 6.68458712*(10**-9), 'AU': 1.58128451*(10**-5), 'ly': 0.306594845, 'pc': 3.08567758*(10**16)}
 
 
 
