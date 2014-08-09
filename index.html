@@ -62,7 +62,8 @@ m2 = kepler3(p, a, m1, None)
 m2.put() # Earth mass calculated as a 2-body system
 </code></pre>
 <h4>Distance Modulus</h4>
-<pre><code>convert(modulus(None, Quantity(-26.74, [mag], []), Quantity(4.83, [mag], [])), [AU], []).put() # Earth-Sun distance calculated from solar magnitudes
+<pre><code>d = modulus(None, Quantity(-26.74, [mag], []), Quantity(4.83, [mag], []))
+d.put() # Earth-Sun distance calculated from solar magnitudes
 </code></pre>
 
 
