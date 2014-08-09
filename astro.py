@@ -198,7 +198,7 @@ earthMoonDist = Quantity(384400, [km], []) #km
 
 
 #convert.py
-def convert(q, newNumUnits, newDenUnits):
+def convert(q, newNumUnits, newDenUnits=[]):
     a = 1
     b = 1
     for (i, item) in enumerate(newNumUnits):
@@ -285,3 +285,16 @@ def planetTemp(temp, luminosity, albedo, distance, work='true'):
     convert(luminosity, [m, m, kg], [s, s, s])
     convert(distance, [m], [])
     return Quantity((((luminosity.value*(1-albedo))/(16*stefan.value*np.pi))**0.25)*(distance.value**-0.5), [K], [])
+  elif luminosity == None:
+    convert(temp, [K], [])
+    convert(distance, [m], [])
+    return #something
+  elif albedo == None:
+    convert(luminosity, [m, m, kg], [s, s, s])
+    convert(distance, [m], [])
+    convert(temp, [K], [])
+    return #something
+  elif distance == None:
+    convert(luminosity, [m, m, kg], [s, s, s])
+    convert(temp, [K], [])
+    return #something
