@@ -68,10 +68,5 @@ def find_path(graph, start, end, path=[]):
 lengthLinkGraph = {'m': 'km', 'km': 'AU', 'AU': 'ly', 'ly': 'pc', 'pc': 'm'}
 lengthFactorGraph = {'m': 0.001, 'km': 6.68458712*(10**-9), 'AU': 1.58128451*(10**-5), 'ly': 0.306594845, 'pc': 3.08567758*(10**16)}
 
-def getConvFactor(lengthLinkGraph, start, end):
-  factor = 1
-  for node in find_path(lengthLinkGraph, start.abbr, end.abbr): # replace start and end with start unit &nd end unit
-    factor *= lengthFactorGraph.get(node)
-  return factor
 
 
