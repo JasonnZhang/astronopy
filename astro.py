@@ -37,10 +37,11 @@ def simplify(qty):
     
 #units.py
 class Units(object):
-  def __init__(self, abbr, name, dictionary):
+  def __init__(self, abbr, name, dictionary, unitType):
     self.abbr = abbr # unit abbreviation (i.e. 'm')
     self.name = name # unit name (i.e. 'meters')
     self.dictionary = dictionary # dictionary associated (i.e. mDict)
+    self.unitType = unitType
 
   # The convert() function only works for units that are proportional to each other (i.e. km <==> m). It does not work for non-linear conversions, like K <==> C. Therefore, a special if statement needs to be written in the convert() function to handle that specific conversion. The associated dictionary for K and C should be empty as well.
 
