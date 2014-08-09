@@ -2,7 +2,7 @@ import numpy as np
 
 #quantity.py
 class Quantity(object):
-  def __init__(self, value, numUnits, denUnits):
+  def __init__(self, value, numUnits, denUnits=[]):
     self.value = value # numerical value
     self.numUnits = numUnits # array of units in the numerator, i.e. {kg.abbr, m.abbr, m.abbr}
     self.denUnits = denUnits # array of units in the denominator, i.e. {s.abbr, s.abbr}
@@ -221,11 +221,11 @@ def getConvFactor(m, n):
 #module.py
 '''
 # # # Catalog # # #
-Kepler's law
-Distance mod
-Planetary temperature** missing some algebra
-Escape velocity** missing some algebra
-Wien's law
+-Kepler's law-
+-Distance mod-
+-Wien's law-
+Planetary temperature
+Escape velocity
 Luminosity & app brightness
 '''
 def kepler3(period, semimajor, m1, m2, work='true'):
