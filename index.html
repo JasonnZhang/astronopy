@@ -55,15 +55,15 @@ qtyb.put()
 qty.put()
 </code></pre>
 <h4>Kepler's 3rd law</h4>
-<pre><code>p = Quantity(365, [days], [])
-a = Quantity(1, [AU], [])
-m1 = Quantity(1, [msun], [])
+<pre><code>p = Quantity(365, [days])
+a = Quantity(1, [AU])
+m1 = Quantity(1, [msun])
 m2 = kepler3(p, a, m1, None)
 m2.put() # Earth mass calculated as a 2-body system
 </code></pre>
 <h4>Distance Modulus</h4>
-<pre><code>sunAppMag = Quantity(-26.74, [mag], [])
-sunAbsMag = Quantity(4.83, [mag], [])
+<pre><code>sunAppMag = Quantity(-26.74, [mag])
+sunAbsMag = Quantity(4.83, [mag])
 d = modulus(None, sunAppMag, sunAbsMag)
 d.put() # Earth-Sun distance calculated from solar magnitudes
 </code></pre>
@@ -71,7 +71,7 @@ d.put() # Earth-Sun distance calculated from solar magnitudes
 <pre><code># Not working for some reason
 </code></pre>
 <h4>Escape velocity</h4>
-<pre><code>mass = Quantity(1, [mearth], [])
+<pre><code>mass = Quantity(1, [mearth])
 v = escapeVel(None, mass, earthRadius)
 v.put() # Earth's escape velocity
 </code></pre>
