@@ -219,15 +219,15 @@ def getConvFactor(m, n):
     return m.dictionary[n.abbr]
 
 #imgproc.py
-def get(imgurl):
-  data = imread(imgurl)
+def get(img):
+  data = imread('%.jpg' % img)
   data = sp.inner(data, [299, 587, 114])/1000.0
   return (data - data.mean()) / data.std()
-def baseline(imgurl):
-  corr = c2d(get(imgurl), get(imgurl), mode='same')
+def baseline(img):
+  corr = c2d(get(img), get(img), mode='same')
   return corr.max()
-def simscore(imgurl1, imgurl2):
-  corr = c2d(get(imgurl1), get(imgurl2), mode='same')
+def simscore(img1, img2):
+  corr = c2d(get(img1), get(img2), mode='same')
   return corr.max()
 
 #module.py
