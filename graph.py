@@ -48,7 +48,7 @@ AU = Units("AU", "astronomical units", "length", 1.58128451*(10**-5))
 ly = Units("ly", "light-years", "length", 0.306594845)
 pc = Units("pc", "parsecs", "length", 3.08567758*(10**16))
 
-lengthgraph = {m: km, km: AU, AU: ly, ly: pc, pc: m}
+lengthgraph = {m.abbr: km.abbr, km.abbr: AU.abbr, AU.abbr: ly.abbr, ly.abbr: pc.abbr, pc.abbr: m.abbr}
 
 
 
