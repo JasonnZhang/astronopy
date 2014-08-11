@@ -1,4 +1,4 @@
-# Okay so this module is completely experimental. I want to see if I can make the units conversion code more lightweight and pretty by using graph theory. If it works, I'll merge this into the astro.py main module.
+# Okay so this module is completely experimental. I want to see if I can make the units conversion code more lightweight and pretty by using graph theory. If it works, I'll merge this into the astro.py main module. - A
 
 #quantity.py
 class Quantity(object):
