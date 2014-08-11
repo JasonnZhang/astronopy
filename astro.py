@@ -1,4 +1,7 @@
 import numpy as np
+import scipy as sp
+from scipy.misc import imread
+from scipy.signal.signaltools import correlate2d as c2d
 
 #quantity.py
 class Quantity(object):
@@ -215,8 +218,17 @@ def getConvFactor(m, n):
     # load dictionaries
     return m.dictionary[n.abbr]
 
-
-    
+#imgproc.py
+def get(imgurl):
+  data = imread(imgurl)
+  data = sp.inner(data, [299, 587, 114])/1000.0
+  return (data - data.mean()) / data.std()
+def baseline(imgurl):
+  corr = c2d(get(imgurl), get(imgurl), mode='same')
+  return corr.max()
+def simscore(imgurl1, imgurl2):
+  corr = c2d(get(imgurl1), get(imgurl2), mode='same')
+  return corr.max()
 
 #module.py
 '''
@@ -298,3 +310,7 @@ def planetTemp(temp, luminosity, albedo, distance, work='true'):
     convert(luminosity, [m, m, kg], [s, s, s])
     convert(temp, [K], [])
     return #something
+
+
+
+
