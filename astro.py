@@ -240,7 +240,7 @@ def simscore(img1, img2):
 Planetary temperature
 Luminosity & app brightness
 '''
-def kepler3(period, semimajor, m1, m2, work='true'):
+def kepler3(period, semimajor, m1, m2, work=True):
   if period == None:
     convm1 = convert(m1, [kg], [])
     convm2 = convert(m2, [kg], [])
@@ -262,7 +262,7 @@ def kepler3(period, semimajor, m1, m2, work='true'):
     conva = convert(semimajor, [m], [])
     return Quantity(((4*(np.pi**2)*(conva.value**3))/(bigG.value*(convperiod.value**2)))-convm1.value, [kg], [])
 
-def modulus(d, appmag, absmag, work='true'):
+def modulus(d, appmag, absmag, work=True):
   if d == None:
     return Quantity(10**((0.2*(appmag.value-absmag.value))+1), [pc], [])
   elif appmag == None:
@@ -272,13 +272,13 @@ def modulus(d, appmag, absmag, work='true'):
     convd = convert(d, [pc], [])
     return Quantity(appmag.value - (-5*(np.log10(convd.value)-1)), [mag], [])
 
-def wiensLaw(lba, T, work='true'):
+def wiensLaw(lba, T, work=True):
   if lba == None:
     return Quantity(wien.value/T.value, [m], [])
   elif T == None:
     return Quantity(wien.value/lba.value, [K], [])
 
-def escapeVel(escape_velocity, mass, radius, work='true'):
+def escapeVel(escape_velocity, mass, radius, work=True):
   if escape_velocity == None:
     mass = convert(mass, [kg], [])
     radius = convert(radius, [m], [])
@@ -292,7 +292,7 @@ def escapeVel(escape_velocity, mass, radius, work='true'):
     mass = convert(mass, [kg], [])
     return Quantity((2*bigG.value*mass.value)/(escape_velocity.value**2), [m], [])
 
-def planetTemp(temp, luminosity, albedo, distance, work='true'):
+def planetTemp(temp, luminosity, albedo, distance, work=True):
   if temp == None:
     convert(luminosity, [m, m, kg], [s, s, s])
     convert(distance, [m], [])
