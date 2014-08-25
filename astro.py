@@ -170,6 +170,11 @@ mag = Units("mag", "magnitude", magDict, "magnitude")
 
 # This is really helpful: http://physics.nist.gov/cuu/Units/units.html
 
+
+# # # Powers of Ten # # #
+def ten(p):
+  return 10**p
+
 # # # General # # #
 bigG = Quantity(6.67384*(10**-11), [m, m, m], [kg, s, s]) #(m^3)/(kg(s^2))
 c = Quantity(299792458, [m], [s]) #m/s
