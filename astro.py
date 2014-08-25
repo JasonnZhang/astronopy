@@ -297,6 +297,7 @@ def escapeVel(escape_velocity, mass, radius, work=True):
     mass = convert(mass, [kg], [])
     return Quantity((2*bigG.value*mass.value)/(escape_velocity.value**2), [m], [])
 
+'''
 def planetTemp(temp, luminosity, albedo, distance, work=True):
   if temp == None:
     convert(luminosity, [m, m, kg], [s, s, s])
@@ -315,7 +316,7 @@ def planetTemp(temp, luminosity, albedo, distance, work=True):
     convert(luminosity, [m, m, kg], [s, s, s])
     convert(temp, [K], [])
     return #something
-
+'''
 
 
 
