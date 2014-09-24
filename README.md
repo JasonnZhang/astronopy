@@ -7,3 +7,5 @@ An astrophysics computation package for Python.
 `import numpy`     
 
 `from astro import *`
+
+That's it!
