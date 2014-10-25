@@ -3,32 +3,6 @@ import scipy as sp
 from scipy.misc import imread
 from scipy.signal.signaltools import correlate2d as c2d
 
-#system.py
-
-##BEGIN EXPERIMENTAL
-class Star(object):
-  def __init__(self, mass=None, radius=None, temp=None, luminosity=None, orbital_vel=None, partner=None):
-    self.mass = mass
-    self.radius = radius
-    self.temp = temp
-    self.luminosity = luminosity
-    self.orbital_vel = orbital_vel
-    self.partner = partner
-  def fill(self)
-    if (self.mass==None):
-      self.mass = Quantity(((self.luminosity.value/sunLuminosity.value)**(0.28571428571))*(sunMass.value**3.5), [kg], [])
-      repr(self.value)
-      print("Mass determined by mass-luminosity relationship. Use caution when using this value for non-main-sequence stars.")
-    if (self.radius==None):
-      self.radius == Quantity(math.sqrt(self.luminosity.value/(4*math.pi*stefan.value*(self.temp**4))), [m], [])
-##END EXPERIMENTAL
-
-
-
-
-
-
-
 #quantity.py
 class Quantity(object):
   def __init__(self, value, numUnits, denUnits=[]):
@@ -261,6 +235,53 @@ def baseline(img):
 def simscore(img1, img2):
   corr = c2d(get(img1), get(img2), mode='same')
   return corr.max()
+
+#stellar classdefs
+class Binary(object):
+    def __init__(self, stars=[]):
+        self.stars = stars
+    def calcMass1(self):
+        if(self.stars[0].mass==None):
+            self.stars[0].mass = self.stars[1].mass*self.stars[1].rad_vel/self.stars[0].rad_vel
+        print("Mass = " + str(self.stars[0].mass))
+    def calcRadVel1(self):
+        if(self.stars[0].rad_vel==None):
+            self.stars[0].rad_vel = sself.tars[1].mass*self.stars[1].rad_vel/self.stars[0].mass
+    def calcMass2(self):
+        if(self.stars[1].mass==None):
+            self.stars[1].mass = self.stars[0].mass*self.stars[0].rad_vel/self.stars[1].rad_vel
+        print("Mass = " + str(self.stars[1].mass))
+    def calcRadVel2(self):
+        if(self.stars[1].rad_vel==None):
+            self.stars[1].rad_vel = self.stars[0].mass*self.stars[0].rad_vel/self.stars[1].mass
+        print("Mass = " + str(self.stars[1].mass))
+    def putData(self):
+        #for item in stars put()
+        print("Star 1==================")
+        self.stars[0].put()
+        print("Star 2==================")
+        self.stars[1].put()
+class Star(object):
+    def __init__(self, mass=None, rad_vel=None):
+        self.mass = mass
+        self.rad_vel = rad_vel
+    def put(self):
+        print("Mass = " +str(self.mass))
+        print("Radial Velocity = " + str(self.rad_vel))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #module.py
 '''
