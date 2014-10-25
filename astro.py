@@ -29,7 +29,16 @@ class Quantity(object):
         strDenUnits += ("*"+item.abbr)
       # should probably add something here to concatenate like units (instead of something like 'mm')
     print "%s  %s/%s" % (self.value, strNumUnits, strDenUnits)
-
+  def divideBy(self, divisor):
+    result = Quantity(1, [], [])
+    result.numUnits.append(self.numUnits)
+    result.numUnits.append(divisor.numUnits)
+    result.denUnits.append(self.denUnits)
+    result.denUnits.append(divisor.denUnits)
+    simplify(result)
+    result.value = self.value/divisor.value
+    result.put()
+    return result
 def simplify(qty):
   for x in xrange(0, len(qty.numUnits)):  
     for item in qty.numUnits:
