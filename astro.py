@@ -3,6 +3,32 @@ import scipy as sp
 from scipy.misc import imread
 from scipy.signal.signaltools import correlate2d as c2d
 
+#system.py
+
+##BEGIN EXPERIMENTAL
+class Star(object):
+  def __init__(self, mass=None, radius=None, temp=None, luminosity=None, orbital_vel=None, partner=None):
+    self.mass = mass
+    self.radius = radius
+    self.temp = temp
+    self.luminosity = luminosity
+    self.orbital_vel = orbital_vel
+    self.partner = partner
+  def fill(self)
+    if (self.mass==None):
+      self.mass = Quantity(((self.luminosity.value/sunLuminosity.value)**(0.28571428571))*(sunMass.value**3.5), [kg], [])
+      repr(self.value)
+      print("Mass determined by mass-luminosity relationship. Use caution when using this value for non-main-sequence stars.")
+    if (self.radius==None):
+      self.radius == Quantity(math.sqrt(self.luminosity.value/(4*math.pi*stefan.value*(self.temp**4))), [m], [])
+##END EXPERIMENTAL
+
+
+
+
+
+
+
 #quantity.py
 class Quantity(object):
   def __init__(self, value, numUnits, denUnits=[]):
@@ -194,6 +220,7 @@ sunAbsMag = Quantity(4.8, [mag], [])
 sunAppMag = Quantity(-26.7, [mag], [])
 sunEqRotPeriod = Quantity(25.04, [days], []) #days
 sunPoleRotPeriod = Quantity(30, [days], []) #days
+sunLuminosity = Quantity(3.846*(10**26), [kg, m, m], [s, s, s]) #watts
 
 # # # Earth # # #
 earthMass = Quantity(5976*(10**24), [kg], []) #kg
