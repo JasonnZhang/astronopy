@@ -1,95 +1,80 @@
-from dictionaries import *
-#quantity.py
+import copy
 class Quantity(object):
-  def __init__(self, value, numUnits, denUnits=[]):
+  def __init__(self, value, units):
     self.value = value # numerical value
-    self.numUnits = numUnits # array of units in the numerator, i.e. {kg.abbr, m.abbr, m.abbr}
-    self.denUnits = denUnits # array of units in the denominator, i.e. {s.abbr, s.abbr}
-    for x in xrange(0, len(self.numUnits)):  
+    self.units = units # array of units in the numerator, i.e. [[m, 2], [s, -1]]
+    '''for x in xrange(0, len(self.numUnits)):  
       for item in self.numUnits:
         if item in self.denUnits:
           self.numUnits.remove(item)
-          self.denUnits.remove(item)
-  def put(self):
-    strNumUnits = ''
-    strDenUnits = ''
-    for index, item in enumerate(self.numUnits):
-      if index == 0:
-        strNumUnits += (item.abbr)
-      else:
-        strNumUnits += ("*"+item.abbr)
-    for index, item in enumerate(self.denUnits):
-      if index == 0:
-        strDenUnits += (item.abbr)
-      else:
-        strDenUnits += ("*"+item.abbr)
-      # should probably add something here to concatenate like units (instead of something like 'mm')
-    print "%s  %s/%s" % (self.value, strNumUnits, strDenUnits)
-  ## Quantity math operations
-  def simplify(self):
-    for x in xrange(0, len(self.numUnits)):  
-      for item in self.numUnits:
-        if item in self.denUnits:
-          self.numUnits.remove(item)
-          self.denUnits.remove(item)
-    self.put()
-  def convert(self, newNumUnits, newDenUnits=[]):
-    a = 1
-    b = 1
-    for (i, item) in enumerate(newNumUnits):
-        a *= getConvFactor(self.numUnits[i], newNumUnits[i])
-        # debugging only print "numconvfac = " + str(getConvFactor(self.numUnits[i], newNumUnits[i]))
-    for (j, item) in enumerate(newDenUnits):
-        b *= getConvFactor(self.denUnits[j], newDenUnits[j])
-        # debugging only print "denconvfac = " + str(getConvFactor(self.denUnits[j], newDenUnits[j]))
-    x = (a*(self.value))/b
-    self = Quantity(x, newNumUnits, newDenUnits) 
-    self.put()
-  def invert(self):
-    if self.value != 0:
-      inv = Quantity(self.value**-1, self.denUnits, self.numUnits)
-    else:
-      inv = Quantity(0, self.denUnits, self.numUnits)
-    inv.put()
-    return inv
-  def multiplyBy(self, factor):
-    c = Quantity(1, [], [])
-    c.value = a.value*b.value
-    for f in xrange(len(a.numUnits)):
-      c.numUnits.append(a.numUnits[f])
-    for g in xrange(len(b.numUnits)):
-      c.numUnits.append(b.numUnits[g])
-    for h in xrange(len(a.denUnits)):
-      c.denUnits.append(a.denUnits[h])
-    for j in xrange(len(b.denUnits)):
-      c.denUnits.append(b.denUnits[j])
-    c.simplify()
-    return c
+          self.denUnits.remove(item)'''
 
-  def divideBy(self, dividend):
-    a = self
-    b = dividend.invert()
-    if(b.value==0):
-      print('Cannot divide by zero!')
-      return
-    else:
-      c = Quantity(1, [], [])
-      c.value = a.value*b.value
-      for f in xrange(len(a.numUnits)):
-        c.numUnits.append(a.numUnits[f])
-      for g in xrange(len(b.numUnits)):
-        c.numUnits.append(b.numUnits[g])
-      for h in xrange(len(a.denUnits)):
-        c.denUnits.append(a.denUnits[h])
-      for j in xrange(len(b.denUnits)):
-        c.denUnits.append(b.denUnits[j])
-      c.simplify()
-      return c
+      
+  def put(self):
+    strUnits = ''
+    for item in self.units:
+      strUnits+=('('+str(item[0].abbr)+'^'+str(item[1])+')')
+    print "%s  %s" % (self.value, strUnits)
     
-#units.py
+  '''def simplify(self):
+    listOfUnits = []
+    for entry in self.units:
+      if len(entry)==1:
+        entry = [entry[0], 1]
+    for item1 in self.units:
+      for item2 in self.units:
+        if item1[0] == item2[0]:
+          listOfUnits.append([item1[0], (item1[1]+item2[1])])
+    self.units = listOfUnits
+  '''
+  def convert(self, newUnits):
+    print('Ensure dimensional match manually!')
+    a = 1
+    for (i, item) in enumerate(newUnits):
+        a *= (getConvFactor(self.units[i][0], newUnits[i][0])**newUnits[i][1])
+    x = (a*(self.value))
+    self.value = x
+    self.units = newUnits
+    self.put()
+    
+    
+  def power(self, power):
+    newQty = copy.deepcopy(self)
+    for item in newQty.units:
+      item[1]=item[1]*power
+    #self = Quantity(self.value**power, newUnits)
+    newQty.value = newQty.value**power
+    return newQty
+  def multiplyBy(self, factor):
+    a = self
+    b = factor
+    c = Quantity(1, [])
+    c.value = a.value*b.value
+    for f in xrange(len(a.units)):
+      c.units.append(a.units[f])
+    for g in xrange(len(b.units)):
+      c.units.append(b.units[g])
+    return c
+  def divideBy(self, dividend):
+    b = copy.deepcopy(dividend)
+    b.power(-1)
+    return self.multiplyBy(b)
+  def add(self, addend):
+    #print('Ensure dimensional match manually!')
+    a = addend
+    a.convert(self.units)
+    q = Quantity((self.value)+(a.value), self.units)
+    return q
+  def subtract(self, subtrahend):
+    #print('Ensure dimensional match manually!')
+    a = subtrahend
+    a.convert(self.units)
+    q = Quantity((self.value)-(a.value), self.units)
+    return q
+  ## end untested stuff
 class Units(object):
   def __init__(self, abbr, name, dictionary, unitType):
-    self.abbr = abbr # unit abbreviation (i.e. '_m')
+    self.abbr = abbr # unit abbreviation (i.e. 'm')
     self.name = name # unit name (i.e. 'meters')
     self.dictionary = dictionary
     self.unitType = unitType
@@ -100,24 +85,127 @@ def ten(p):
   return 10**p
 
 
-
 #convert.py
 def getConvFactor(m, n):
     # load dictionaries
     return m.dictionary[n.abbr]
 
-def toBaseUnits(value, full_unit_name_plural):
-  parsed_input = full_unit_name_plural.upper()
-  if parsed_input=='WATTS':
-    return Quantity(value, [kg, m, m], [s, s, s])
-  elif parsed_input=='JOULES':
-    return Quantity(value, [kg, m, m], [s, s])
-  elif parsed_input=='NEWTONS':
-    return Quantity(value, [kg, m], [s, s, s])
-  elif parsed_input=='PASCALS':
-    return Quantity(value, [kg], [m, s, s])
-  elif parsed_input=='HERTZ':
-    return Quantity(value, [], [s])
-  else:
-    print('Unrecognized! Choose watts, joules, newtons, pascals, or hertz.')
-    return
+
+
+# # # Mass # # #
+kgDict = {
+  'kg': 1, 
+  'g': 1000, 
+  'msun': 1.0/1989000000000000000000000000000, 
+  'mearth': 1.0/(5976*(10**24))
+  }
+kg = Units("kg", "kilograms", kgDict, "mass")
+
+gDict = {
+  'kg': 1.0/kgDict.get('g'), 
+  'g': 1, 
+  'msun': (1.0/kgDict.get('g'))*kgDict.get('msun'),
+  'mearth': (1.0/kgDict.get('g'))*kgDict.get('mearth')
+  }
+g = Units("g", "grams", gDict, "mass")
+
+msunDict = {
+  'kg': 1989000000000000000000000000000, 
+  'g': 1989000000000000000000000000000000, 
+  'msun': 1,
+  'mearth': (1989000000000000000000000000000)*kgDict.get('mearth')
+  }
+msun = Units("msun", "solar mass", msunDict, "mass")
+
+
+mearthDict = {
+  'kg': (5976*(10**24)), 
+  'g': 1.9891*(10**33), 
+  'msun': 3.0024584*(10**-6),
+  'mearth': 1
+  }
+mearth = Units("mearth", "earth mass", mearthDict, "mass")
+
+# # # Time # # #
+sDict = {
+  's': 1, 
+  'hrs': (1.0/3600), 
+  'days': (1.0/86400)
+  }
+s = Units("s", "seconds", sDict, "time")
+  
+hrsDict = {
+  's': 3600, 
+  'hrs': 1, 
+  'days': 24
+  }
+hrs = Units("hrs", "hours", hrsDict, "time")
+
+daysDict = {
+  's': 86400, 
+  'hrs': 24, 
+  'days': 1
+  }
+days = Units("days", "days", daysDict, "time")
+
+# # # Length # # #
+kmDict = {
+  'km': 1,
+  'm': 1000,
+  'AU': 1.0/149597871,
+  'pc': 1.0/(3.08567758*(10**13)),
+  'ly': 1.0/(9.4605284*(10**12))
+  }
+km = Units("km", "kilometers", kmDict, "length")
+
+mDict = {
+  'km': 0.001,
+  'm': 1,
+  'AU': (0.001)*(1.0/149597871),
+  'pc': (0.001)*(1.0/(3.08567758*(10**13))),
+  'ly': (0.001)*(1.0/(9.4605284*(10**12)))
+  }
+m = Units("m", "meters", mDict, "length")
+
+AUDict = {
+  'km': 149597871,
+  'm': 1000*149597871,
+  'AU': 1,
+  'pc': 1.0/206264.806,
+  'ly': 1.0/63239.7263
+  }
+AU = Units("AU", "astronomical units", AUDict, "length")
+
+pcDict = {
+  'km': (3.08567758*(10**13)),
+  'm': (3.08567758*(10**16)),
+  'AU': 1.0/AUDict.get('pc'),
+  'pc': 1,
+  'ly': 3.26163344
+  }
+pc = Units("pc", "parsecs", pcDict, "length")
+
+lyDict = {
+  'km': (9.4605284*(10**12)),
+  'm': (9.4605284*(10**15)),
+  'AU': 1.0/AUDict.get('ly'),
+  'pc': 1.0/pcDict.get('ly'),
+  'ly': 1
+  }
+ly = Units("ly", "light-years", lyDict, "length")
+  
+# # # Temperature # # #
+# Empty dictionary for non linear conversions (should be handled in convert())
+KDict = {}
+K = Units("K", "Kelvin", KDict, "temperature")
+
+CDict = {}
+C = Units("C", "Celsius", CDict, "temperature")
+
+FDict = {}
+F = Units("F", "Fahrenheit", FDict, "temperature")
+
+# # # Magnitude # # #
+# There is only one unit of magnitude, so the dictionary should be empty.
+magDict = {}
+mag = Units("mag", "magnitude", magDict, "magnitude")
