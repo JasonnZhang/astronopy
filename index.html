@@ -42,7 +42,7 @@
 <pre>
   <code>a_units = [[msun, 1] [m, 1], [s, -1]]</code>
 </pre>
-<p>Each inner list is constructed as follows: <code>[unitname, power]</code>. This list structure makes dimensional analysis possible.</p>
+<p>Each inner list is constructed as follows: <code>[unit_name, exponent]</code>. This list structure makes dimensional analysis possible.</p>
 <pre>
   <code>a = Quantity(123.45, [[msun, 1] [m, 1], [s, -1]])</code>
 </pre>
@@ -51,6 +51,8 @@
   <code>b = toBaseUnits(543.21*ten(8), 'watts')</code>
   <code>b.put()</code>
 </pre>
+
+<p>Standard mathematical operators (+, -, *, /, **) cannot be used with instances of the Quantity class. Instead, use <code>Quantity().add()</code>, <code>Quantity().subtract()</code>, <code>Quantity().multiplyBy()</code>, <code>Quantity().divideBy()</code>, <code>Quantity().power()</code>. Dimensional analysis will automatically be performed.</p>
 
 <h3>
 <a name="samples" class="anchor" href="#samples"><span class="octicon octicon-link"></span></a>Quick Samples</h3>
