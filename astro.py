@@ -400,7 +400,21 @@ class Star(object):
 
 
 
-
+def toBaseUnits(value, full_unit_name_plural):
+  parsed_input = full_unit_name_plural.upper()
+  if parsed_input=='WATTS':
+    return Quantity(value, [[kg, 1], [m, 2], [s, -3]])
+  elif parsed_input=='JOULES':
+    return Quantity(value, [[kg, 1], [m, 2], [s, -2]])
+  elif parsed_input=='NEWTONS':
+    return Quantity(value, [[kg, 1], [m, 1], [s, -3]])
+  elif parsed_input=='PASCALS':
+    return Quantity(value, [[kg, 1], [m, -1], [s, -2]])
+  elif parsed_input=='HERTZ':
+    return Quantity(value, [[s, -1]])
+  else:
+    print('Unrecognized! Choose watts, joules, newtons, pascals, or hertz.')
+    return
 
 
 #module.py
