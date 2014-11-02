@@ -246,7 +246,7 @@ earthRadius = Quantity(6378, [[km, 1]]) #km
 earthMoonDist = Quantity(384400, [[km, 1]]) #km
 
 
-def kepler3(period, semimajor, mass_sum):
+def kepler3(period=None, semimajor=None, mass_sum=None):
   if period == None:
     semimajor.convert([[m, 1]])
     mass_sum.convert([[kg, 1]])
@@ -270,7 +270,7 @@ def kepler3(period, semimajor, mass_sum):
     d.value *= 4*(math.pi**2)
     return d
 #begin untested
-def stefan_boltzmann(radius, temp, luminosity):
+def stefan_boltzmann(radius=None, temp=None, luminosity=None):
   if radius == none:
     temp.convert([[K, 1]])
     luminosity.convert([[kg, 1], [m, -1], [s, -2]])
@@ -294,7 +294,7 @@ def stefan_boltzmann(radius, temp, luminosity):
     q.value *= 4*(math.pi)
     return q
 
-def wiens_law(max_wavelength, temp):
+def wiens_law(max_wavelength=None, temp=None):
   if max_wavelength == none:
     return wien.divideBy(temp)
   elif temp == none:
@@ -304,7 +304,7 @@ def wiens_law(max_wavelength, temp):
 def universe_age(const_hubble=hubble):
   return const_hubble.power(-1)
 
-def apparent_brightness(brightness, luminosity, distance):
+def apparent_brightness(brightness=None, luminosity=None, distance=None):
   if brightness == none:
     luminosity.convert([[kg, 1], [m, -1], [s, -2]])
     distance.convert([[m, 1]])
@@ -323,7 +323,7 @@ def apparent_brightness(brightness, luminosity, distance):
     d = q.power(0.5)
     return d
 
-def hubbles_law(rec_vel, dist, const_hubble=hubble):
+def hubbles_law(rec_vel=None, dist=None, const_hubble=hubble):
   if rec_vel == None:
     dist.convert([[pc, 1]])
     return dist.multiplyBy(const_hubble)
