@@ -34,14 +34,6 @@
 
 <p><strong>AstronoPy</strong> is a <a href="http://www.numpy.org">NumPy</a>- and <a href="http://www.scipy.org/">SciPy</a>-based astrophysics computation package for Python.</p>
 
-<p>Just plug and play:</p>
-
-<pre><code>import numpy as np
-import scipy as sp
-from astro import *
-</code></pre>
-
-<p>Easy, right?</p>
 
 <h3>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h3>
@@ -50,36 +42,11 @@ from astro import *
 <h3>
 <a name="samples" class="anchor" href="#samples"><span class="octicon octicon-link"></span></a>Quick Samples</h3>
 <h4>Unit conversion & dimensional analysis</h4>
-<pre><code>qtya = Quantity(15, [msun, m], [s])
-qtyb = convert(qtya, [kg, km], [hrs])
-qtyb.put()
+<pre><code>a = Quantity(15, [msun, 1] [m, 1], [s, -1]])
+b = convert(qtya, [[kg, 1], [km, 1], [hrs, -1]])
+b.put()
 </code></pre>
-<h4>Unit simplification</h4>
-<pre><code>qty = Quantity(15, [kg, m, s], [m, s, s])
-qty.put()
-</code></pre>
-<h4>Kepler's 3rd law</h4>
-<pre><code>p = Quantity(365, [days])
-a = Quantity(1, [AU])
-m1 = Quantity(1, [msun])
-m2 = kepler3(p, a, m1, None)
-m2.put() # Earth mass calculated as a 2-body system
-</code></pre>
-<h4>Distance Modulus</h4>
-<pre><code>sunAppMag = Quantity(-26.74, [mag])
-sunAbsMag = Quantity(4.83, [mag])
-d = modulus(None, sunAppMag, sunAbsMag)
-d.put() # Earth-Sun distance calculated from solar magnitudes
-</code></pre>
-<h4>Wien's Law</h4>
-<pre><code>y = Quantity(0.0000005, [m])
-wiensLaw(y, None).put() # Sun temperature given wavelength
-</code></pre>
-<h4>Escape velocity</h4>
-<pre><code>mass = Quantity(1, [mearth])
-v = escapeVel(None, mass, earthRadius)
-v.put() # Earth's escape velocity
-</code></pre>
+
 
 
 
