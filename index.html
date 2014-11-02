@@ -41,8 +41,15 @@
 <p>In an instance of <code>Quantity()</code>, </code><code>value</code> can be any Number data type. However, <code>units</code> takes the form of a list of lists as follows:</p>
 <pre>
   <code>a_units = [[msun, 1] [m, 1], [s, -1]]</code>
-  <code>a_val = 123.45</code>
-  <code>a = Quantity(a_val, a_units)</code>
+</pre>
+<p>Each inner list is constructed as follows: <code>[unitname, power]</code>. This list structure makes dimensional analysis possible.</p>
+<pre>
+  <code>a = Quantity(123.45, [[msun, 1] [m, 1], [s, -1]])</code>
+</pre>
+<p>For non-base SI units, such as watts or joules, use the function <code>toBaseUnits()</code> to create an instance of the Quantity class as follows:</p>
+<pre>
+  <code>b = toBaseUnits(543.21*ten(8), 'watts')</code>
+  <code>b.put()</code>
 </pre>
 
 <h3>
