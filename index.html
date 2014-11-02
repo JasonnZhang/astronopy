@@ -71,40 +71,7 @@ b.put()
 <p><i>Warning: when using <code>convert()</code>, manually ensure that there is no dimensional mismatch.</i></p>
 
 <h4>Constants</h4>
-<p>Astronopy has a small collection of constants hardcoded in the source. Each constant is an instance of <code>Quantity()</code>. The full list of constant names, values, and units are listed below.</p>
-<i>Last updated: 1 Nov 2014</i>
-<pre>
-  <code>
-    # # # General # # #
-    bigG = Quantity(6.67384*ten(-11), [[m, 3], [kg, -1], [s, -2]]) #(m^3)/(kg(s^2))
-    c = Quantity(299792458, [[m, 1], [s, -1]]) #m/s
-    hubble = Quantity(67.8/1000000, [[km, 1], [s, -1], [pc, -1]]) #(km/(s*pc))
-    wien = Quantity(0.0028977721, [[m, 1], [K, 1]]) #m K
-    stefan = Quantity((5.670373*ten(-8)), [[kg, 1], [s, -3], [K, -4]]) #W(m^-2)(K^-4) (converted to base SI units)
-    
-    # # # Sun # # #
-    sunCoronaTemp = Quantity(1000000, [[K, 1]]) #K
-    sunChromTemp = Quantity(10000, [[K, 1]]) #K
-    sunPhotoTemp = Quantity(6000, [[K, 1]]) #K
-    sunCoreTemp = Quantity(15000000, [[K, 1]]) #K
-    sunMass = Quantity(1989000000000000000000000000000, [[kg, 1]]) #kg
-    sunRadius = Quantity(695590000, [[m, 1]]) #m
-    # sunDensity = Quantity(1.41, [g], [cm, cm, cm]) #g/cm^3
-    sunAbsMag = Quantity(4.8, [[mag, 1]])
-    sunAppMag = Quantity(-26.7, [[mag, 1]])
-    sunEqRotPeriod = Quantity(25.04, [[days, 1]]) #days
-    sunPoleRotPeriod = Quantity(30, [[days, 1]]) #days
-    sunLuminosity = Quantity(3.846*ten(26), [[kg, 1], [m, 2], [s, -3]]) #watts
-    
-    # # # Earth # # #
-    earthMass = Quantity(5976*ten(24), [[kg, 1]]) #kg
-    earthDensity = Quantity(5515, [[kg, 1], [m, -3]]) #kg/m^3
-    earthSurfTemp = Quantity(287, [[K, 1]]) #K
-    earthSurfGrav = Quantity(9.78, [[m, 1], [s, -2]]) #m/s^2
-    earthRadius = Quantity(6378, [[km, 1]]) #km
-    earthMoonDist = Quantity(384400, [[km, 1]]) #km
-  </code>
-</pre>
+<p>Astronopy has a small collection of constants hardcoded in the source. Each constant is an instance of <code>Quantity()</code>. The full list of constant names, values, and units are listed <a href="constants.txt">here</a>.</p>
 
 
 
