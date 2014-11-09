@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Astronopy</title>
 	<script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+	<script type="text/javascript">
+	LatexIT.add('p',true);
+	LatexIT.add('li',true);
+	</script>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -73,8 +77,12 @@ b.put()
 <h4>Constants</h4>
 <p>Astronopy has a small collection of constants hardcoded in the source. Each constant is an instance of <code>Quantity()</code>. The full list of constant names, values, and units are listed <a href="constants.txt">here</a>.</p>
 
-<h4>Binaries</h4>
-<p>The <code>Binary()</code> class is still being developed.</p>
+<h4>Star Simulation & Modeling</h4>
+<p>The <code>Star()</code> class is still being developed. However, the theory is presented below.</p>
+<p>Citing Katz &emdash; <i>High Energy Astrophysics</i> (1986), we can, for the sake of simplicity, define the steady-state equations of a star as follows:</p>
+<ul>
+	<li>\[\frac{dP(r)}{dr} = \frac{p(r)GM(r)}{r^2}\]</li>
+</ul>
 
 <h4>Astrophysics Calculations</h4>
 <p>Astronopy contains a calculator function for several common astrophysical calculations.</p>
@@ -91,7 +99,6 @@ year_length.put() # Untested
 <p>Example coming soon.</p>
 <h5>Apparent brightness</h5>
 <p>Example coming soon.</p>
-<div lang="latex">1+sin(x)^2+3</div>
 
 <!--<p>The documentation is in progress.</p>
 <h4>Constants</h4>
