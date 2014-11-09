@@ -271,7 +271,7 @@ def kepler3(period=None, semimajor=None, mass_sum=None):
     return d
 #begin untested
 def stefan_boltzmann(radius=None, temp=None, luminosity=None):
-  if radius == none:
+  if radius == None:
     temp.convert([[K, 1]])
     luminosity.convert([[kg, 1], [m, -1], [s, -2]])
     q = stefan.multiplyBy(temp.power(4))
@@ -279,7 +279,7 @@ def stefan_boltzmann(radius=None, temp=None, luminosity=None):
     r = luminosity.divideBy(q)
     d = r.power(0.5)
     return d
-  elif temp == none:
+  elif temp == None:
     radius.convert([[m, 1]])
     luminosity.convert([[kg, 1], [m, -1], [s, -2]])
     q = stefan.multiplyBy(radius.power(2))
@@ -287,7 +287,7 @@ def stefan_boltzmann(radius=None, temp=None, luminosity=None):
     r = luminosity.divideBy(q)
     d = r.power(0.25)
     return d
-  elif luminosity == none:
+  elif luminosity == None:
     temp.convert([[K]])
     radius.convert([[m, 1]])
     q = r.multiplyBy(stefan.multiplyBy(temp.power(4)))
@@ -295,9 +295,9 @@ def stefan_boltzmann(radius=None, temp=None, luminosity=None):
     return q
 
 def wiens_law(max_wavelength=None, temp=None):
-  if max_wavelength == none:
+  if max_wavelength == None:
     return wien.divideBy(temp)
-  elif temp == none:
+  elif temp == None:
     max_wavelength.convert([[m, 1]])
     return wien.divideBy(max_wavelength)
     
@@ -305,19 +305,19 @@ def universe_age(const_hubble=hubble):
   return const_hubble.power(-1)
 
 def apparent_brightness(brightness=None, luminosity=None, distance=None):
-  if brightness == none:
+  if brightness == None:
     luminosity.convert([[kg, 1], [m, -1], [s, -2]])
     distance.convert([[m, 1]])
     q = luminosity.divideBy(distance.power(2))
     q.value = q.value/(4*(math.pi))
     return q
-  elif luminosity == none:
+  elif luminosity == None:
     brightness.convert([[kg, 1], [m, -3], [s, -2]])
     distance.convert([[m, 1]])
     q = brightness.multiplyBy(distance.power(2))
     q.value *= (4*(math.pi))
     return q
-  elif distance == none:
+  elif distance == None:
     q = luminosity.divideBy(brightness)
     q.value = q.value/(4*(math.pi))
     d = q.power(0.5)
