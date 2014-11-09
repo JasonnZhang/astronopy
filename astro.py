@@ -274,27 +274,11 @@ def kepler3(period=None, semimajor=None, mass_sum=None):
 #begin untested
 def stefan_boltzmann(radius=None, temp=None, luminosity=None):
   if radius == None:
-    temp.convert([[K, 1]])
-    luminosity.convert([[kg, 1], [m, -1], [s, -2]])
-    q = stefan.multiplyBy(temp.power(4))
-    q.value *= 4*(math.pi)
-    r = luminosity.divideBy(q)
-    d = r.power(0.5)
-    return d
+    pass#stuff
   elif temp == None:
-    radius.convert([[m, 1]])
-    luminosity.convert([[kg, 1], [m, -1], [s, -2]])
-    q = stefan.multiplyBy(radius.power(2))
-    q.value *= 4*(math.pi)
-    r = luminosity.divideBy(q)
-    d = r.power(0.25)
-    return d
+    pass#stuff
   elif luminosity == None:
-    temp.convert([[K]])
-    radius.convert([[m, 1]])
-    q = r.multiplyBy(stefan.multiplyBy(temp.power(4)))
-    q.value *= 4*(math.pi)
-    return q
+    pass#stuff
 
 def wiens_law(max_wavelength=None, temp=None):
   if max_wavelength == None:
@@ -427,5 +411,5 @@ Distance mod
 -Wien's law-
 Escape velocity
 Planetary temperature
--Luminosity & app brightness
+Luminosity & app brightness
 '''
