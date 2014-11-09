@@ -79,7 +79,10 @@ b.put()
 <h4>Astrophysics Calculations</h4>
 <p>Astronopy contains a calculator function for several common astrophysical calculations.</p>
 <h5>Kepler's 3rd Law (Newton's form)</h5>
-<p>Example coming soon.</p>
+<p>The following example shows how to calculate the length of a year from Newton's form of Kepler's 3rd Law.</p>
+<pre><code>year_length = kepler3(None, Quantity(1.0, [[AU, 1]]), Quantity(1, [[msun, 1]]).add(Quantity(1, [[mearth, 1]])))
+year_length.put() # Untested
+</code></pre>
 <h5>Stefan-Boltzmann Law</h5>
 <p>Example coming soon.</p>
 <h5>Wien's Law</h5>
