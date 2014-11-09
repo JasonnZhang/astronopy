@@ -1,6 +1,6 @@
 import numpy as np
 import scipy as sp
-from diman import *
+#from diman import *
 
 import copy
 import math
@@ -10,29 +10,31 @@ class Quantity(object):
     self.value = value # numerical value
     self.units = units # array of units in the numerator, i.e. [[m, 2], [s, -1]]
     '''for x in xrange(0, len(self.numUnits)):  
-      for item in self.numUnits:
+        for item in self.numUnits:
         if item in self.denUnits:
           self.numUnits.remove(item)
           self.denUnits.remove(item)'''
 
       
   def put(self):
+    self.simplify()
     strUnits = ''
     for item in self.units:
       strUnits+=('('+str(item[0].abbr)+'^'+str(item[1])+')')
     print "%s  %s" % (self.value, strUnits)
     
-  '''def simplify(self):
-    listOfUnits = []
-    for entry in self.units:
-      if len(entry)==1:
-        entry = [entry[0], 1]
-    for item1 in self.units:
-      for item2 in self.units:
-        if item1[0] == item2[0]:
-          listOfUnits.append([item1[0], (item1[1]+item2[1])])
-    self.units = listOfUnits
-  '''
+  def simplify(self):
+    for x in self.units:
+        for y in self.units:
+            if x[0].abbr==y[0].abbr and x!=y:
+                self.units.append([x[0], x[1]+y[1]])
+                self.units.remove(x)
+                self.units.remove(y)
+    for z in self.units:
+        if z[1] == 0.0:
+            self.units.remove(z)
+    
+  
   def convert(self, newUnits):
     print('Ensure dimensional match manually!')
     a = 1
@@ -63,8 +65,8 @@ class Quantity(object):
     return c
   def divideBy(self, dividend):
     b = copy.deepcopy(dividend)
-    b.power(-1)
-    return self.multiplyBy(b)
+    w = b.power(-1)
+    return self.multiplyBy(w)
   def add(self, addend):
     #print('Ensure dimensional match manually!')
     a = addend
