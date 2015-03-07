@@ -3,14 +3,40 @@ from sympy import Symbol
 
 import numpy as np
 
-stefan = 5.670373*(10**-8) #W(m^-2)(K^-4)
+stefan = 5.670373*ten(-8) #W(m^-2)(K^-4)
 wien = 0.0028977721 #m K
 hubble = 67.8 #(km/s)/Mpc
-bigG = 6.67384*(10**-11) #(m^3)/(kg(s^2))
+bigG = 6.67384*ten(-11) #(m^3)/(kg(s^2))
 c = 299792458 #m/s
 
 def ten(p):
     return 10**p
+    
+
+
+# # # Sun # # #
+sunCoronaTemp = ten(6) #K
+sunChromTemp = ten(5) #K
+sunPhotoTemp = 6*ten(3) #K
+sunCoreTemp = 1.5*ten(7) #K
+sunRadius = 6.96342*ten(8) #m
+sunMass = 1.989*ten(30) #kg
+sunVolume = 1.41*ten(21) #m
+sunLuminosity = 3.846*ten(26) #W
+sunDistance = 1.496*ten(11) #m
+sunAbsMag = 4.83
+sunAppMag = -26.74
+sunDensity = 1.41 #g/cm^3
+sunEqRotPeriod = 25.04 #days
+sunPoleRotPeriod = 30 #days
+
+# # # Earth # # #
+earthMass = 5976*ten(24) #kg
+earthDensity = 5515 #kg/m^3
+earthSurfTemp = 287 #K
+earthSurfGrav = 9.78 #m/s^2
+earthRadius = 6378 #km
+earthMoonDist = 384400 #km
 
 def stefanBoltzmann(solveFor):
     L = Symbol('L')
