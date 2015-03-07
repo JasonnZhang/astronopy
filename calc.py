@@ -1,4 +1,5 @@
 from sympy.solvers import solve
+import sympy.physics.units as u
 from sympy import Symbol
 
 import numpy as np
